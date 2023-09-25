@@ -29,6 +29,7 @@
     <div id="bloco" onclick="clicou()">Clique em mim!</div>
     <script>
         function clicou(){
+            var body = document.body
             var resultado = document.getElementById("res")
             resultado.style.backgroundColor= ("red")
             resultado.style.height = ("250px")
@@ -38,8 +39,22 @@
             resultado.style.borderRadius = ("10px")
             resultado.style.color = ("white")
             resultado.innerHTML = "<strong>CACHORRO SANGUINÁRIO<strong/>"
-                
+            var n1 = Number(window.prompt("Digite um número:"))
+            var n2 = Number(window.prompt("Digite outro número:"))
+            var calculo = soma(n1,n2)
+            window.alert (`A soma entre ${n1} e ${n2} é: ${calculo}.`)
+            trocaCor(body)
         }
+
+        function soma(a,b){
+            return a + b
+        }
+
+        function trocaCor(elemento){
+            elemento.style.backgroundColor = ("green")
+        }
+
+        
     </script>
 </body>
 </html>
