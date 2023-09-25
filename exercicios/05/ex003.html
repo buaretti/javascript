@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: beige;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+        }
+
+        #bloco{
+            height: 200px;
+            width: 200px;
+            border-radius: 10px;
+            background-color: chartreuse;
+            text-align: center;
+            line-height: 200px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>DOM Estudo</h1>
+    <p id="res">Aqui vai o resultado...</p>
+    <p>Aprendendo a usar o <strong>DOM</strong> em JavaScript.</p>
+    <div id="bloco" onclick="clicou()">Clique em mim!</div>
+    <script>
+        function clicou(){
+            var resultado = document.getElementById("res")
+            resultado.style.backgroundColor= ("red")
+            resultado.style.height = ("250px")
+            resultado.style.width = ("250px")
+            resultado.style.textAlign = ("center")
+            resultado.style.lineHeight = ("250px")
+            resultado.style.borderRadius = ("10px")
+            resultado.style.color = ("white")
+            resultado.innerHTML = "<strong>CACHORRO SANGUINÁRIO<strong/>"
+                
+        }
+    </script>
+</body>
+</html>
