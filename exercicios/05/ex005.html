@@ -9,17 +9,31 @@
     <div onclick="clicou()" id="bloco">Clique aqui!</div>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        var body = document.body
-        document.body.style.fontFamily = "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif";
-        var bloco = document.getElementById("bloco")
-        bloco.style.cursor = ("pointer")
-        bloco.style.top = ("50%")
-        bloco.style.left = ("50%")
-        bloco.style.transform = "translate: (-50%, -50%)"
+        var body = document.body;
+        document.body.style.fontFamily =
+          "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif";
+        
+        body.style.backgroundColor = "#203359"
+        var bloco = document.getElementById("bloco");
+        bloco.style.cursor = "pointer";
+        bloco.style.backgroundColor = "#499EBF";
+        bloco.style.width = "200px";
+        bloco.style.height = "200px";
+        bloco.style.textAlign = "center";
+        bloco.style.lineHeight = "200px";     
+        bloco.style.color = "white";
+        document.body.style.margin = "0";
+        document.body.style.padding = "0";
+        document.body.style.display = "flex";
+        document.body.style.justifyContent = "center";
+        document.body.style.alignItems = "center";
+        document.body.style.height = "100vh";
+        bloco.style.borderRadius = "50%"
+        bloco.style.boxShadow = "1px 1px 6px black"
       });
 
-      function clicou(){
-        bloco.style.display = ("none")
+      function clicou() {
+        bloco.style.display = "none";
       }
     </script>
   </body>
