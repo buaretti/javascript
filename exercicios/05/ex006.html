@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body, hmtl{
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-size: 1em;
+        }
+        h1{
+            text-align: center;
+        }
+
+        #botao{
+            background-color: #F22786;
+            margin: auto;
+            text-align: center;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            line-height: 200px;
+            color: white;
+            box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.46);
+            cursor: pointer;
+        }
+
+    </style>
+    <h1>Botão Clicável</h1>
+    <div id="botao">Clique em mim!</div>
+</head>
+<body>
+    <script>
+        var botao = document.getElementById("botao")
+        botao.addEventListener('click', clicar)
+        botao.addEventListener('mouseover', entrar)
+        botao.addEventListener('mouseleave', sair)
+
+        function clicar(){
+            botao.textContent = "Clicou!"
+            botao.style.backgroundColor = "#499EBF"
+        }
+        
+        function entrar(){
+            botao.textContent = "Entrou!"
+            botao.style.backgroundColor = "#203359"
+        }
+        
+        function sair(){
+            botao.textContent = "Saiu!"          
+            botao.style.backgroundColor = "#9D7ABF"
+        }
+    </script>
+</body>
+</html>
