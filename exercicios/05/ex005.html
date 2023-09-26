@@ -4,9 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Teste</title>
+    <style>
+      .animated {
+        background-color: #6db5e3; /* Cor de fundo mais clara */
+        transform: scale(1.2); /* Aumento de tamanho */
+        transition: all 0.3s ease; /* Transição suave com duração de 0.3 segundos */
+      }
+
+      #bloco {
+        transition: all 0.3s ease;
+      }
+
+      .saindo {
+        opacity: 0; /* Torna o elemento transparente */
+        transform: scale(0); /* Reduz o tamanho a zero */
+      }
+    </style>
   </head>
   <body>
-    <div onclick="clicou()" onmouseenter="entrou()" id="bloco">
+    <div
+      onclick="clicou()"
+      onmouseenter="entrou()"
+      onmouseleave="saiu()"
+      id="bloco"
+    >
       Clique aqui!
     </div>
     <script>
@@ -36,7 +57,10 @@
       });
 
       function clicou() {
-        bloco.style.display = "none";
+        bloco.classList.add("saindo"); // Adiciona a classe de animação de saída
+        setTimeout(function () {
+          bloco.style.display = "none"; // Oculta o elemento após a animação
+        }, 300);
       }
 
       function entrou() {
