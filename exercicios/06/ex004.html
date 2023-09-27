@@ -16,33 +16,33 @@
           Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
           sans-serif;
         font-size: 1em;
-        background-color: #593e3e;
         width: 100%;
         height: 100%;
         box-sizing: border-box;
+        background-color: #b5b4d9;
       }
 
       header {
-        background-color: #a64153;
-        color: #d7d9d7;
+        background-color: #5E5BA6;
+        color: #F2F2F0;
         padding: 40px;
-        box-shadow: 2px 2px 6px #382727;
+        box-shadow: 2px 2px 6px rgba(117, 116, 139, 0.46);
         position: relative;
       }
 
       header h1 {
         text-align: center;
-        text-shadow: 1px 1px 6px #6a2935;
+        text-shadow: 1px 1px 6px #3c3a6a6e;
         margin-bottom: 10px;
-      }
-
-      header p {
+    }
+    
+    header p {
         text-align: center;
-        text-shadow: 1px 1px 6px #6a2935;
-      }
-
-      main {
-        background-color: #d7d9d7;
+        text-shadow: 1px 1px 6px #3c3a6a6e;
+    }
+    
+    main {
+        background-color: #F2F2F0;
         width: 70vw;
         height: 75vh;
         margin: auto;
@@ -50,38 +50,59 @@
         margin-bottom: 72.5px;
         min-width: 300px;
         max-width: 1000px;
-        box-shadow: 2px 2px 6px #382727;
+        box-shadow: 2px 2px 6px rgba(117, 116, 139, 0.462);
         border-radius: 10px;
         padding: 30px;
-      }
-
-      main h2 {
+    }
+    
+    main h2 {
         text-align: center;
         font-size: 1.4em;
-        color: #a6705d;
-      }
+        color: #5E5BA6;
+        margin-bottom: 10px;
+    }
 
-      main input{
-        width: 100px;
-      }
-
-      footer {
-        background-color: #a64153;
+    main > p.desc{
         text-align: center;
-        color: #d7d9d7;
+        color: #989898;
+        margin-bottom: 30px;
+    }
+
+    main > p > label{
+        color: #5E5BA6;
+    }
+    
+    main > input{
+        width: 70vw;
+        height: 40px;
+        border-radius: 10px;
+        border: 1.6px solid #989898;
+        margin-bottom: 10px;
+    }
+
+    ::placeholder{
+        color: #989898;
+        padding: 20px;
+    }
+    
+    footer {
+        background-color: #5E5BA6;
+        text-align: center;
+        color: #F2F2F0;
         padding: 5px;
         bottom: 0;
         font-size: 0.8em;
-        box-shadow: 2px 2px 6px #382727;
-      }
-
-      footer p {
+        box-shadow: 2px 2px 6px rgba(117, 116, 139, 0.46);
+    }
+    
+    footer p {
         max-width: 100%;
         margin: 0 auto;
-      }
-
-      footer a {
-        color: #d7d9d7;
+        text-shadow: 1px 1px 6px #3c3a6a6e;
+    }
+    
+    footer a {
+        color: #F2F2F0;
         text-decoration: none;
         font-style: italic;
         font-weight: bolder;
@@ -99,20 +120,21 @@
     </header>
     <main>
       <h2>Preencha os campos abaixo &downarrow;</h2>
+      <p class="desc">Informe seu nome, país atual e o seu país de origem para ver o resultado.</p>
       <p>
         <label for="nome">Nome:</label>
-        <input type="text" name="nome" id="nome" autocomplete="name" placeholder="Cleiton Santos" />
-      </p>
+    </p>
+        <input type="text" name="nome" id="nome" autocomplete="name" placeholder="Cleiton G Santos" />
 
       <p>
         <label for="paisatual">País atual:</label>
+    </p>
         <input type="text" name="paisaatual" id="paisatual" autocomplete="country-name" placeholder="Brazil" />
-      </p>
 
       <p>
         <label for="paisorigem">País de Origem:</label>
+    </p>
         <input type="text" name="paisorigem" id="paisorigem" autocomplete="country-name" placeholder="USA" />
-      </p>
     </main>
     <footer>
       <p>
