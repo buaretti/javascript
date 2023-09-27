@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Sistema de Multas</h1>
+    <label for="txtvel">Velocidade do carro:</label>
+    <input type="number" name="txtvel" id="txtvel" /> Km/h
+    <input id="botao" type="button" value="Verificar" />
+    <div id="res"></div>
+    <script>
+      function clicou() {
+        var tvel = document.getElementById("txtvel");
+        var vel = Number(tvel.value);
+        var res = document.getElementById("res");
+        var botao = document.getElementById("botao");
+        res.innerHTML = `<p> Sua velocidade atual é de <strong>${vel}Km/h</strong> </p`;
+            if (vel > 80) {
+                res.innerHTML +=
+                "<p>Você está acima do limite de velocidade. <strong>MULTADO!</strong>.</p>";
+            }
+            res.innerHTML += "<p>Dirija sempre com o cinto de segurança!</p>"
+        }
+      botao.addEventListener("click", clicou);
+    </script>
+  </body>
+</html>
