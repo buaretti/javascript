@@ -70,6 +70,7 @@
 
     main > p > label{
         color: #5E5BA6;
+        cursor: pointer;
     }
     
     main > input{
@@ -78,11 +79,23 @@
         border-radius: 10px;
         border: 1.6px solid #989898;
         margin-bottom: 10px;
+        background-color: #b5b4d909;
+        cursor: pointer;
+        text-align: center;
+        color: rgba(0, 0, 0, 0.773);
     }
 
     ::placeholder{
         color: #989898;
         padding: 20px;
+        text-align: left;
+    }
+
+    #botao {
+        width: 100px;
+        display: block;
+        margin: auto ;
+        margin-top: 10px;
     }
     
     footer {
@@ -135,6 +148,9 @@
         <label for="paisorigem">País de Origem:</label>
     </p>
         <input type="text" name="paisorigem" id="paisorigem" autocomplete="country-name" placeholder="USA" />
+        <input id="botao" type="button" value="Resultado">
+
+    <div id="resultado"></div>
     </main>
     <footer>
       <p>
