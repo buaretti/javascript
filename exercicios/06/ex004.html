@@ -85,6 +85,15 @@
         color: rgba(0, 0, 0, 0.773);
       }
 
+      .erro-msg {
+        color: rgb(250, 59, 59);
+        font-size: 0.8em;
+        transform: translateY(-10px);
+        width: 125px;
+        float: right;
+        display: none;
+      }
+
       main > input:hover {
         border-color: #5e5ba6;
       }
@@ -208,7 +217,9 @@
         id="nome"
         autocomplete="name"
         placeholder="Cleiton G Santos"
+        oninput="this.value = this.value.replace(/[0-9]/g, '')"
       />
+      <div class="erro-msg" id="name-erro">Campo obrigatório</div>
 
       <p>
         <label for="paisorigem">País de Origem:</label>
@@ -219,7 +230,9 @@
         id="paisorigem"
         autocomplete="country-name"
         placeholder="USA"
+        oninput="this.value = this.value.replace(/[0-9]/g, '')"
       />
+      <div class="erro-msg" id="pais-erro">Campo obrigatório</div>
       <p>
         <label>Gênero:</label> <br />
         <input
@@ -259,6 +272,37 @@
         var generoMasculino = document.getElementById("masculino").checked;
         var generoFeminino = document.getElementById("feminino").checked;
         var paisorigem = document.getElementById("paisorigem").value;
+        var nameerro = document.getElementById("name-erro");
+        var paiserro = document.getElementById("pais-erro");
+
+        if (nome == "" && paisorigem == "") {
+          nameerro.style.display = "block";
+          paiserro.style.display = "block";
+
+          setTimeout(function () {
+            nameerro.style.display = "none";
+            paiserro.style.display = "none";
+          }, 3000);
+          return;
+        }
+
+        if (nome == "") {
+          nameerro.style.display = "block";
+
+          setTimeout(function () {
+            nameerro.style.display = "none";
+          }, 3000);
+          return;
+        }
+
+        if (paisorigem == "") {
+          paiserro.style.display = "block";
+
+          setTimeout(function () {
+            paiserro.style.display = "none";
+          }, 3000);
+          return;
+        }
 
         bandeiras.style.display = "none";
         if (
@@ -278,7 +322,7 @@
         ) {
           if (generoMasculino) {
             res.innerHTML = nome + ", Você é Brasileiro! 🇧🇷";
-          } else if(generoFeminino) {
+          } else if (generoFeminino) {
             res.innerHTML = nome + ", Você é Brasileira! 🇧🇷";
           }
           exp.innerHTML =
@@ -291,8 +335,8 @@
           paisorigem == "ES"
         ) {
           if (generoMasculino) {
-          res.innerHTML = nome + ", Você é Espanhol! 🇪🇸";
-        }else if (generoFeminino){
+            res.innerHTML = nome + ", Você é Espanhol! 🇪🇸";
+          } else if (generoFeminino) {
             res.innerHTML = nome + ", Você é Espanhola! 🇪🇸";
           }
           exp.innerHTML =
@@ -304,11 +348,11 @@
           paisorigem == "England" ||
           paisorigem == "GB"
         ) {
-          if(generoMasculino){
-          res.innerHTML = nome + ", Você é Britânico! 🇬🇧";
-        } else if(generoFeminino){
-          res.innerHTML = nome + ", Você é Britânica! 🇬🇧";
-        }
+          if (generoMasculino) {
+            res.innerHTML = nome + ", Você é Britânico! 🇬🇧";
+          } else if (generoFeminino) {
+            res.innerHTML = nome + ", Você é Britânica! 🇬🇧";
+          }
           exp.innerHTML =
             "A Inglaterra é uma nação historicamente rica e culturalmente diversa que faz parte do Reino Unido, composto por quatro nações, incluindo Escócia, País de Gales e Irlanda do Norte. Localizada na ilha da Grã-Bretanha, a Inglaterra tem uma identidade distinta e uma história fascinante.";
         }
@@ -318,10 +362,10 @@
           paisorigem == "FR" ||
           paisorigem == "France"
         ) {
-          if(generoMasculino){
-          res.innerHTML = nome + ", Você é Francês! 🇫🇷";
-        } else if(generoFeminino){
-          res.innerHTML = nome + ", Você é Francesa! 🇫🇷";
+          if (generoMasculino) {
+            res.innerHTML = nome + ", Você é Francês! 🇫🇷";
+          } else if (generoFeminino) {
+            res.innerHTML = nome + ", Você é Francesa! 🇫🇷";
           }
           exp.innerHTML =
             'A França, localizada no coração da Europa Ocidental, é uma nação que se destaca por sua rica cultura, história e contribuições significativas para as artes, culinária e moda. É conhecida como "a terra da liberdade, igualdade e fraternidade" e é famosa por sua revolução que inspirou valores democráticos em todo o mundo.';
@@ -332,20 +376,20 @@
           paisorigem == "Italy" ||
           paisorigem == "IT"
         ) {
-          if(generoMasculino){
-          res.innerHTML = nome + ", Você é italiano! 🇮🇹";
-        } else if (generoFeminino){
-          res.innerHTML = nome + ", Você é italiana! 🇮🇹";
+          if (generoMasculino) {
+            res.innerHTML = nome + ", Você é italiano! 🇮🇹";
+          } else if (generoFeminino) {
+            res.innerHTML = nome + ", Você é italiana! 🇮🇹";
           }
           exp.innerHTML =
             "A Itália é uma nação icônica localizada na região sul da Europa, conhecida por sua rica história, cultura vibrante, culinária deliciosa e contribuições significativas para a arte e a ciência. Com uma herança que remonta ao Império Romano, a Itália desempenhou um papel fundamental na formação da civilização ocidental.";
         }
 
         if (paisorigem == "Portugal" || paisorigem == "PT") {
-          if(generoMasculino){
-          res.innerHTML = nome + ", Você é Português! 🇵🇹";
-        } else if (generoFeminino){
-          res.innerHTML = nome + ", Você é Portuguesa! 🇵🇹";
+          if (generoMasculino) {
+            res.innerHTML = nome + ", Você é Português! 🇵🇹";
+          } else if (generoFeminino) {
+            res.innerHTML = nome + ", Você é Portuguesa! 🇵🇹";
           }
           exp.innerHTML =
             "Portugal, situado na Península Ibérica, é uma nação encantadora e historicamente rica, conhecida por suas belas paisagens, cultura cativante e influências globais que datam dos tempos dos grandes exploradores.";
@@ -356,19 +400,19 @@
           paisorigem == "India" ||
           paisorigem == "IN"
         ) {
-          if(generoMasculino){
-          res.innerHTML = nome + ", Você é Indiano! 🇮🇳";
-        } else if(generoFeminino){
-          res.innerHTML = nome + ", Você é Indiana! 🇮🇳";
+          if (generoMasculino) {
+            res.innerHTML = nome + ", Você é Indiano! 🇮🇳";
+          } else if (generoFeminino) {
+            res.innerHTML = nome + ", Você é Indiana! 🇮🇳";
           }
           exp.innerHTML =
             "A Índia, localizada no sul da Ásia, é uma nação diversificada e fascinante, conhecida por sua vasta história, cultura rica e uma população extraordinariamente grande e diversificada.";
         }
 
         if (paisorigem == "China" || paisorigem == "CN") {
-          if(generoMasculino){
+          if (generoMasculino) {
             res.innerHTML = nome + ", Você é Chinês! 🇨🇳";
-          } else if (generoFeminino){
+          } else if (generoFeminino) {
             res.innerHTML = nome + ", Você é Chinesa! 🇨🇳";
           }
           exp.innerHTML =
@@ -380,9 +424,9 @@
           paisorigem == "Russia" ||
           paisorigem == "RU"
         ) {
-          if(generoMasculino){
+          if (generoMasculino) {
             res.innerHTML = nome + ", Você é Russo! 🇷🇺";
-          } else if(generoFeminino){
+          } else if (generoFeminino) {
             res.innerHTML = nome + ", Você é Russa! 🇷🇺";
           }
           exp.innerHTML =
