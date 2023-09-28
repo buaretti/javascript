@@ -95,11 +95,42 @@
         text-align: left;
       }
 
+            input[type="radio"] {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        width: 10px;
+        height: 10px;
+        border: 2px solid #5e5ba6; /* Cor da borda do botão de rádio não marcado */
+        border-radius: 50%; /* Isso torna o botão de rádio circular */
+        outline: none;
+        cursor: pointer;
+      }
+
+      /* Estilize o botão de rádio marcado */
+      input[type="radio"]:checked {
+        background-color: #b5b4d9; /* Cor de fundo do botão de rádio marcado */
+        border: 2px solid #5e5ba6; /* Cor da borda do botão de rádio marcado */
+        color: rgba(0, 0, 0, 0.773);
+      }
+
+      .gen{
+        color: #989898;
+        margin-top: 10px;
+        margin-bottom: 35px;
+        display: inline-block;
+        margin-right: 10px
+      }
+
+      .gen:hover{
+        color: rgba(0, 0, 0, 0.773);
+      }
+
       #botao {
         width: 100px;
         display: block;
         margin: auto;
-        margin-top: 10px;
+        margin-top: 0px;
       }
 
       img {
@@ -167,7 +198,7 @@
     <main>
       <h2>Preencha os campos abaixo &downarrow;</h2>
       <p class="desc">
-        Informe seu nome, país atual e o seu país de origem para ver o
+        Informe seu nome, gênero e o seu país de origem para ver o
         resultado.
       </p>
       <p>
@@ -181,27 +212,25 @@
         placeholder="Cleiton G Santos"
       />
 
-      <p>
-        <label for="paisatual">País atual:</label>
-      </p>
-      <input
-        type="text"
-        name="paisatual"
-        id="paisatual"
-        autocomplete="country-name"
-        placeholder="Brazil"
-      />
-
+      
       <p>
         <label for="paisorigem">País de Origem:</label>
       </p>
       <input
-        type="text"
-        name="paisorigem"
-        id="paisorigem"
-        autocomplete="country-name"
-        placeholder="USA"
+      type="text"
+      name="paisorigem"
+      id="paisorigem"
+      autocomplete="country-name"
+      placeholder="USA"
       />
+      <p>
+        <label>Gênero:</label> <br>
+        <input type="radio" name="genero" value="masculino" id="masculino" checked />
+        <label class="gen" for="masculino">Masculino</label>
+        <input type="radio" name="genero" value="feminino" id="feminino" />
+        <label class="gen" for="feminino">Feminino</label>
+      </p>
+
       <input id="botao" type="button" value="Resultado" />
       <img id="bandeiras" src="bandeiras.jpg" alt="Bandeiras" />
       <div id="res"></div>
@@ -224,7 +253,7 @@
         var res = document.getElementById("res");
         var exp = document.getElementById("exp");
         var nome = document.getElementById("nome").value;
-        var paisatual = document.getElementById("paisatual").value;
+        var genero = document.getElementById("genero").value;
         var paisorigem = document.getElementById("paisorigem").value;
 
 
@@ -262,19 +291,37 @@
         if (paisorigem == "Itália" || paisorigem == "Italy" || paisorigem == "IT") {
           res.innerHTML = nome + ", Você é italiano! 🇮🇹";
           exp.innerHTML =
-            "";
+            "A Itália é uma nação icônica localizada na região sul da Europa, conhecida por sua rica história, cultura vibrante, culinária deliciosa e contribuições significativas para a arte e a ciência. Com uma herança que remonta ao Império Romano, a Itália desempenhou um papel fundamental na formação da civilização ocidental.";
         }
 
-        if (paisorigem == "" || paisorigem == "" || paisorigem == "") {
-          res.innerHTML = nome + ", Você é !";
+        if (paisorigem == "Portugal" || paisorigem == "PT") {
+          res.innerHTML = nome + ", Você é Português! 🇵🇹";
           exp.innerHTML =
-            "";
+            "Portugal, situado na Península Ibérica, é uma nação encantadora e historicamente rica, conhecida por suas belas paisagens, cultura cativante e influências globais que datam dos tempos dos grandes exploradores.";
         }
 
-        if (paisorigem == "" || paisorigem == "" || paisorigem == "") {
-          res.innerHTML = nome + ", Você é !";
+        if (paisorigem == "Índia" || paisorigem == "India" || paisorigem == "IN") {
+          res.innerHTML = nome + ", Você é Indiano! 🇮🇳";
           exp.innerHTML =
-            "";
+            "A Índia, localizada no sul da Ásia, é uma nação diversificada e fascinante, conhecida por sua vasta história, cultura rica e uma população extraordinariamente grande e diversificada.";
+        }
+
+        if (paisorigem == "China" || paisorigem == "CN") {
+          res.innerHTML = nome + ", Você é Chinês! 🇨🇳";
+          exp.innerHTML =
+            "A China, localizada no leste da Ásia, é uma nação vasta e diversificada, conhecida por sua longa história, cultura rica e influência global crescente. Com uma população de mais de 1,4 bilhão de pessoas, é o país mais populoso do mundo.";
+        }
+
+        if (paisorigem == "Rússia" || paisorigem == "Russia" || paisorigem == "RU") {
+          res.innerHTML = nome + ", Você é Russo! 🇷🇺";
+          exp.innerHTML =
+            "A Rússia, o maior país do mundo em termos de extensão geográfica, é uma nação vasta e diversificada localizada no norte da Eurásia. É conhecida por sua história rica e complexa, cultura única e paisagens impressionantes.";
+        }
+
+        if (paisorigem == "Canadá" || paisorigem == "Canada" || paisorigem == "CA") {
+          res.innerHTML = nome + ", Você é Canadense! 🇨🇦";
+          exp.innerHTML =
+            "O Canadá, localizado na América do Norte, é uma nação vasta e diversificada conhecida por sua paisagem deslumbrante, qualidade de vida elevada e diversidade cultural.";
         }
       }
     </script>
