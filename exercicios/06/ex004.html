@@ -103,10 +103,12 @@
       }
 
       img {
-        width: 400px;
+        width: 70vw;
         margin: auto;
         display: block;
         margin-top: 45px;
+        max-width: 400px;
+        
       }
 
       .imagem-esconder {
@@ -126,6 +128,7 @@
       #exp {
         color: rgba(0, 0, 0, 0.634);
         text-align: center;
+        font-size: 0.9em;
       }
 
       footer {
@@ -158,7 +161,7 @@
   </head>
   <body>
     <header>
-      <h1>Nacionalidade</h1>
+      <h1>Nacionalidade 🌎</h1>
       <p>Saiba o status da sua nacionalidade aqui!</p>
     </header>
     <main>
@@ -218,18 +221,60 @@
       botao.addEventListener("click", clicou);
       function clicou() {
         var bandeiras = document.getElementById("bandeiras");
-        var res = String(document.getElementById("res"));
+        var res = document.getElementById("res");
         var exp = document.getElementById("exp");
-        var nome = document.getElementById("nome");
-        var paisatual = document.getElementById("paisatual");
-        var paisorigem = document.getElementById("paisorigem");
+        var nome = document.getElementById("nome").value;
+        var paisatual = document.getElementById("paisatual").value;
+        var paisorigem = document.getElementById("paisorigem").value;
 
 
         bandeiras.style.display = "none";
         if (paisorigem == "EUA" || paisorigem == "USA" || paisorigem == "Estados Unidos") {
-          res.innerHTML = `${nome}, Você é Estadunidense!`;
+          res.innerHTML = nome + ", Você é Estadunidense!";
           exp.innerHTML =
             "Os Estados Unidos da América, frequentemente chamados de EUA, são uma nação diversificada e influente localizada na América do Norte. Com uma população de mais de 330 milhões de pessoas, os EUA são conhecidos por sua cultura rica e variada, composta por uma mistura de tradições de todo o mundo.";
+        }
+
+        if (paisorigem == "Brasil" || paisorigem == "BR" || paisorigem == "Brazil") {
+          res.innerHTML = nome + ", Você é Brasileiro!";
+          exp.innerHTML =
+            "O Brasil é o maior país da América do Sul e um dos países mais diversos e culturalmente ricos do mundo. Com uma geografia que abrange florestas tropicais, praias deslumbrantes, planícies vastas e altas montanhas, o Brasil é conhecido por sua beleza natural impressionante.";
+        }
+
+        if (paisorigem == "" || paisorigem == "" || paisorigem == "") {
+          res.innerHTML = nome + ", Você é !";
+          exp.innerHTML =
+            "";
+        }
+
+        if (paisorigem == "" || paisorigem == "" || paisorigem == "") {
+          res.innerHTML = nome + ", Você é !";
+          exp.innerHTML =
+            "";
+        }
+
+        if (paisorigem == "" || paisorigem == "" || paisorigem == "") {
+          res.innerHTML = nome + ", Você é !";
+          exp.innerHTML =
+            "";
+        }
+
+        if (paisorigem == "" || paisorigem == "" || paisorigem == "") {
+          res.innerHTML = nome + ", Você é !";
+          exp.innerHTML =
+            "";
+        }
+
+        if (paisorigem == "" || paisorigem == "" || paisorigem == "") {
+          res.innerHTML = nome + ", Você é !";
+          exp.innerHTML =
+            "";
+        }
+
+        if (paisorigem == "" || paisorigem == "" || paisorigem == "") {
+          res.innerHTML = nome + ", Você é !";
+          exp.innerHTML =
+            "";
         }
       }
     </script>
