@@ -23,8 +23,8 @@
       }
 
       header {
-        background-color: #5E5BA6;
-        color: #F2F2F0;
+        background-color: #5e5ba6;
+        color: #f2f2f0;
         padding: 40px;
         box-shadow: 2px 2px 6px rgba(117, 116, 139, 0.46);
         position: relative;
@@ -34,15 +34,15 @@
         text-align: center;
         text-shadow: 1px 1px 6px #3c3a6a6e;
         margin-bottom: 10px;
-    }
-    
-    header p {
+      }
+
+      header p {
         text-align: center;
         text-shadow: 1px 1px 6px #3c3a6a6e;
-    }
-    
-    main {
-        background-color: #F2F2F0;
+      }
+
+      main {
+        background-color: #f2f2f0;
         width: 70vw;
         height: 75vh;
         margin: auto;
@@ -53,27 +53,27 @@
         box-shadow: 2px 2px 6px rgba(117, 116, 139, 0.462);
         border-radius: 10px;
         padding: 30px;
-    }
-    
-    main h2 {
+      }
+
+      main h2 {
         text-align: center;
         font-size: 1.4em;
-        color: #5E5BA6;
+        color: #5e5ba6;
         margin-bottom: 10px;
-    }
+      }
 
-    main > p.desc{
+      main > p.desc {
         text-align: center;
         color: #989898;
         margin-bottom: 30px;
-    }
+      }
 
-    main > p > label{
-        color: #5E5BA6;
+      main > p > label {
+        color: #5e5ba6;
         cursor: pointer;
-    }
-    
-    main > input{
+      }
+
+      main > input {
         width: 70vw;
         height: 40px;
         border-radius: 10px;
@@ -83,39 +83,39 @@
         cursor: pointer;
         text-align: center;
         color: rgba(0, 0, 0, 0.773);
-    }
+      }
 
-    ::placeholder{
+      ::placeholder {
         color: #989898;
         padding: 20px;
         text-align: left;
-    }
+      }
 
-    #botao {
+      #botao {
         width: 100px;
         display: block;
-        margin: auto ;
+        margin: auto;
         margin-top: 10px;
-    }
-    
-    footer {
-        background-color: #5E5BA6;
+      }
+
+      footer {
+        background-color: #5e5ba6;
         text-align: center;
-        color: #F2F2F0;
+        color: #f2f2f0;
         padding: 5px;
         bottom: 0;
         font-size: 0.8em;
         box-shadow: 2px 2px 6px rgba(117, 116, 139, 0.46);
-    }
-    
-    footer p {
+      }
+
+      footer p {
         max-width: 100%;
         margin: 0 auto;
         text-shadow: 1px 1px 6px #3c3a6a6e;
-    }
-    
-    footer a {
-        color: #F2F2F0;
+      }
+
+      footer a {
+        color: #f2f2f0;
         text-decoration: none;
         font-style: italic;
         font-weight: bolder;
@@ -133,24 +133,45 @@
     </header>
     <main>
       <h2>Preencha os campos abaixo &downarrow;</h2>
-      <p class="desc">Informe seu nome, país atual e o seu país de origem para ver o resultado.</p>
+      <p class="desc">
+        Informe seu nome, país atual e o seu país de origem para ver o
+        resultado.
+      </p>
       <p>
         <label for="nome">Nome:</label>
-    </p>
-        <input type="text" name="nome" id="nome" autocomplete="name" placeholder="Cleiton G Santos" />
+      </p>
+      <input
+        type="text"
+        name="nome"
+        id="nome"
+        autocomplete="name"
+        placeholder="Cleiton G Santos"
+      />
 
       <p>
         <label for="paisatual">País atual:</label>
-    </p>
-        <input type="text" name="paisaatual" id="paisatual" autocomplete="country-name" placeholder="Brazil" />
+      </p>
+      <input
+        type="text"
+        name="paisatual"
+        id="paisatual"
+        autocomplete="country-name"
+        placeholder="Brazil"
+      />
 
       <p>
         <label for="paisorigem">País de Origem:</label>
-    </p>
-        <input type="text" name="paisorigem" id="paisorigem" autocomplete="country-name" placeholder="USA" />
-        <input id="botao" type="button" value="Resultado">
-
-    <div id="resultado"></div>
+      </p>
+      <input
+        type="text"
+        name="paisorigem"
+        id="paisorigem"
+        autocomplete="country-name"
+        placeholder="USA"
+      />
+      <input id="botao" type="button" value="Resultado" />
+      <div id="res"></div>
+      <div id="exp"></div>
     </main>
     <footer>
       <p>
@@ -162,7 +183,15 @@
     </footer>
 
     <script>
-
+      var botao = document.getElementById("botao");
+      botao.addEventListener("click", clicou);
+      function clicou() {
+        var res = document.getElementById("res");
+        var exp = document.getElementById("exp");
+        var nome = document.getElementById("nome");
+        var paisatual = document.getElementById("paisatual");
+        var paisorigem = document.getElementById("paisorigem");
+      }
     </script>
   </body>
 </html>
