@@ -87,7 +87,7 @@
 
       .erro-msg {
         color: rgb(250, 59, 59);
-        font-size: 0.8em;
+        font-size: 0.7em;
         transform: translateY(-10px);
         width: 125px;
         float: right;
@@ -218,20 +218,20 @@
         autocomplete="name"
         placeholder="Cleiton G Santos"
         oninput="this.value = this.value.replace(/[0-9]/g, '')"
-      />
-      <div class="erro-msg" id="name-erro">Campo obrigatório.</div>
-
-      <p>
-        <label for="paisorigem">País de Origem:</label>
-      </p>
-      <input
+        />
+        <div class="erro-msg" id="name-erro">Campo obrigatório.</div>
+        
+        <p>
+          <label for="paisorigem">País de Origem:</label>
+        </p>
+        <input
         type="text"
         name="paisorigem"
         id="paisorigem"
         autocomplete="country-name"
         placeholder="USA"
         oninput="this.value = this.value.replace(/[0-9]/g, '')"
-      />
+        />
       <div class="erro-msg" id="pais-erro">Campo obrigatório.</div>
       <p>
         <label>Gênero:</label> <br />
@@ -307,9 +307,9 @@
         }
 
         if (nomeContemNumeros && paisOrigemContemNumeros) {
-          nameerro.textContent = "Verifique o nome.";
+          nameerro.textContent = "Insira um nome válido.";
           nameerro.style.display = "block";
-          paiserro.textContent = "Verifique o país.";
+          paiserro.textContent = "Insira um país válido.";
           paiserro.style.display = "block";
           setTimeout(function () {
             nameerro.style.display = "none";
@@ -320,7 +320,7 @@
 
         // Verifique individualmente e exiba mensagens de erro apropriadas
         if (nomeContemNumeros) {
-          nameerro.textContent = "Verifique o nome.";
+          nameerro.textContent = "Insira um nome válido.";
           nameerro.style.display = "block";
           setTimeout(function () {
             nameerro.style.display = "none";
@@ -329,13 +329,33 @@
         }
 
         if (paisOrigemContemNumeros) {
-          paiserro.textContent = "Verifique o país.";
+          paiserro.textContent = "Insira um país válido.";
           paiserro.style.display = "block";
           setTimeout(function () {
             paiserro.style.display = "none";
           }, 3000);
           return;
         }
+
+        if (paisorigem.length < 2) {
+        paiserro.textContent = "O país deve ter pelo menos 2 caracteres.";
+        paiserro.style.display = "block";
+
+        setTimeout(function () {
+          paiserro.style.display = "none";
+        }, 3000);
+        return;
+      }
+
+      if (nome.length < 3 || nome.length > 20) {
+        nameerro.textContent = "O nome deve ter entre 3 e 20 caracteres.";
+        nameerro.style.display = "block";
+
+        setTimeout(function () {
+          nameerro.style.display = "none";
+        }, 3000);
+        return;
+      }
 
         bandeiras.style.display = "none";
 
