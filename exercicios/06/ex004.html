@@ -44,7 +44,7 @@
       main {
         background-color: #f2f2f0;
         width: 70vw;
-        height: 75vh;
+        height: 90vh;
         margin: auto;
         margin-top: 72.5px;
         margin-bottom: 72.5px;
@@ -85,6 +85,10 @@
         color: rgba(0, 0, 0, 0.773);
       }
 
+      main > input:hover{
+        border-color: #5e5ba6;
+      }
+
       ::placeholder {
         color: #989898;
         padding: 20px;
@@ -96,6 +100,32 @@
         display: block;
         margin: auto;
         margin-top: 10px;
+      }
+
+      img {
+        width: 400px;
+        margin: auto;
+        display: block;
+        margin-top: 45px;
+      }
+
+      .imagem-esconder {
+        opacity: 0; 
+        transition: opacity 0.5s ease;
+      }
+
+      #res {
+        text-align: center;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        font-size: 1.4em;
+        color: #5e5ba6;
+        font-weight: bold;
+      }
+
+      #exp {
+        color: rgba(0, 0, 0, 0.634);
+        text-align: center;
       }
 
       footer {
@@ -170,6 +200,7 @@
         placeholder="USA"
       />
       <input id="botao" type="button" value="Resultado" />
+      <img id="bandeiras" src="bandeiras.jpg" alt="Bandeiras" />
       <div id="res"></div>
       <div id="exp"></div>
     </main>
@@ -186,11 +217,20 @@
       var botao = document.getElementById("botao");
       botao.addEventListener("click", clicou);
       function clicou() {
-        var res = document.getElementById("res");
+        var bandeiras = document.getElementById("bandeiras");
+        var res = String(document.getElementById("res"));
         var exp = document.getElementById("exp");
         var nome = document.getElementById("nome");
         var paisatual = document.getElementById("paisatual");
         var paisorigem = document.getElementById("paisorigem");
+
+
+        bandeiras.style.display = "none";
+        if (paisorigem == "EUA" || paisorigem == "USA" || paisorigem == "Estados Unidos") {
+          res.innerHTML = `${nome}, Você é Estadunidense!`;
+          exp.innerHTML =
+            "Os Estados Unidos da América, frequentemente chamados de EUA, são uma nação diversificada e influente localizada na América do Norte. Com uma população de mais de 330 milhões de pessoas, os EUA são conhecidos por sua cultura rica e variada, composta por uma mistura de tradições de todo o mundo.";
+        }
       }
     </script>
   </body>
