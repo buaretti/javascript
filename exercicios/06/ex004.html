@@ -219,7 +219,7 @@
         placeholder="Cleiton G Santos"
         oninput="this.value = this.value.replace(/[0-9]/g, '')"
       />
-      <div class="erro-msg" id="name-erro">Campo obrigatório</div>
+      <div class="erro-msg" id="name-erro">Campo obrigatório.</div>
 
       <p>
         <label for="paisorigem">País de Origem:</label>
@@ -232,7 +232,7 @@
         placeholder="USA"
         oninput="this.value = this.value.replace(/[0-9]/g, '')"
       />
-      <div class="erro-msg" id="pais-erro">Campo obrigatório</div>
+      <div class="erro-msg" id="pais-erro">Campo obrigatório.</div>
       <p>
         <label>Gênero:</label> <br />
         <input
@@ -274,6 +274,8 @@
         var paisorigem = document.getElementById("paisorigem").value;
         var nameerro = document.getElementById("name-erro");
         var paiserro = document.getElementById("pais-erro");
+        var nomeContemNumeros = !/^[a-zA-Z\s]*$/.test(nome);
+        var paisOrigemContemNumeros = !/^[a-zA-Z\s]*$/.test(paisorigem);
 
         if (nome == "" && paisorigem == "") {
           nameerro.style.display = "block";
@@ -304,7 +306,39 @@
           return;
         }
 
+        if (nomeContemNumeros && paisOrigemContemNumeros) {
+          nameerro.textContent = "Verifique o nome.";
+          nameerro.style.display = "block";
+          paiserro.textContent = "Verifique o país.";
+          paiserro.style.display = "block";
+          setTimeout(function () {
+            nameerro.style.display = "none";
+            paiserro.style.display = "none";
+          }, 3000);
+          return;
+        }
+
+        // Verifique individualmente e exiba mensagens de erro apropriadas
+        if (nomeContemNumeros) {
+          nameerro.textContent = "Verifique o nome.";
+          nameerro.style.display = "block";
+          setTimeout(function () {
+            nameerro.style.display = "none";
+          }, 3000);
+          return;
+        }
+
+        if (paisOrigemContemNumeros) {
+          paiserro.textContent = "Verifique o país.";
+          paiserro.style.display = "block";
+          setTimeout(function () {
+            paiserro.style.display = "none";
+          }, 3000);
+          return;
+        }
+
         bandeiras.style.display = "none";
+
         if (
           paisorigem == "EUA" ||
           paisorigem == "USA" ||
