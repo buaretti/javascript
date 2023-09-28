@@ -85,7 +85,7 @@
         color: rgba(0, 0, 0, 0.773);
       }
 
-      main > input:hover{
+      main > input:hover {
         border-color: #5e5ba6;
       }
 
@@ -95,7 +95,7 @@
         text-align: left;
       }
 
-            input[type="radio"] {
+      input[type="radio"] {
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
@@ -114,15 +114,15 @@
         color: rgba(0, 0, 0, 0.773);
       }
 
-      .gen{
+      .gen {
         color: #989898;
         margin-top: 10px;
         margin-bottom: 35px;
         display: inline-block;
-        margin-right: 10px
+        margin-right: 10px;
       }
 
-      .gen:hover{
+      .gen:hover {
         color: rgba(0, 0, 0, 0.773);
       }
 
@@ -139,11 +139,10 @@
         display: block;
         margin-top: 45px;
         max-width: 400px;
-        
       }
 
       .imagem-esconder {
-        opacity: 0; 
+        opacity: 0;
         transition: opacity 0.5s ease;
       }
 
@@ -198,8 +197,7 @@
     <main>
       <h2>Preencha os campos abaixo &downarrow;</h2>
       <p class="desc">
-        Informe seu nome, gênero e o seu país de origem para ver o
-        resultado.
+        Informe seu nome, gênero e o seu país de origem para ver o resultado.
       </p>
       <p>
         <label for="nome">Nome:</label>
@@ -212,20 +210,25 @@
         placeholder="Cleiton G Santos"
       />
 
-      
       <p>
         <label for="paisorigem">País de Origem:</label>
       </p>
       <input
-      type="text"
-      name="paisorigem"
-      id="paisorigem"
-      autocomplete="country-name"
-      placeholder="USA"
+        type="text"
+        name="paisorigem"
+        id="paisorigem"
+        autocomplete="country-name"
+        placeholder="USA"
       />
       <p>
-        <label>Gênero:</label> <br>
-        <input type="radio" name="genero" value="masculino" id="masculino" checked />
+        <label>Gênero:</label> <br />
+        <input
+          type="radio"
+          name="genero"
+          value="masculino"
+          id="masculino"
+          checked
+        />
         <label class="gen" for="masculino">Masculino</label>
         <input type="radio" name="genero" value="feminino" id="feminino" />
         <label class="gen" for="feminino">Feminino</label>
@@ -253,72 +256,144 @@
         var res = document.getElementById("res");
         var exp = document.getElementById("exp");
         var nome = document.getElementById("nome").value;
-        var genero = document.getElementById("genero").value;
+        var generoMasculino = document.getElementById("masculino").checked;
+        var generoFeminino = document.getElementById("feminino").checked;
         var paisorigem = document.getElementById("paisorigem").value;
 
-
         bandeiras.style.display = "none";
-        if (paisorigem == "EUA" || paisorigem == "USA" || paisorigem == "Estados Unidos") {
+        if (
+          paisorigem == "EUA" ||
+          paisorigem == "USA" ||
+          paisorigem == "Estados Unidos"
+        ) {
           res.innerHTML = nome + ", Você é Estadunidense! 🇺🇸";
           exp.innerHTML =
             "Os Estados Unidos da América, frequentemente chamados de EUA, são uma nação diversificada e influente localizada na América do Norte. Com uma população de mais de 330 milhões de pessoas, os EUA são conhecidos por sua cultura rica e variada, composta por uma mistura de tradições de todo o mundo.";
         }
 
-        if (paisorigem == "Brasil" || paisorigem == "BR" || paisorigem == "Brazil") {
-          res.innerHTML = nome + ", Você é Brasileiro! 🇧🇷";
+        if (
+          paisorigem == "Brasil" ||
+          paisorigem == "BR" ||
+          paisorigem == "Brazil"
+        ) {
+          if (generoMasculino) {
+            res.innerHTML = nome + ", Você é Brasileiro! 🇧🇷";
+          } else if(generoFeminino) {
+            res.innerHTML = nome + ", Você é Brasileira! 🇧🇷";
+          }
           exp.innerHTML =
             "O Brasil é o maior país da América do Sul e um dos países mais diversos e culturalmente ricos do mundo. Com uma geografia que abrange florestas tropicais, praias deslumbrantes, planícies vastas e altas montanhas, o Brasil é conhecido por sua beleza natural impressionante.";
         }
 
-        if (paisorigem == "Espanha" || paisorigem == "Spain" || paisorigem == "ES") {
+        if (
+          paisorigem == "Espanha" ||
+          paisorigem == "Spain" ||
+          paisorigem == "ES"
+        ) {
+          if (generoMasculino) {
           res.innerHTML = nome + ", Você é Espanhol! 🇪🇸";
+        }else if (generoFeminino){
+            res.innerHTML = nome + ", Você é Espanhola! 🇪🇸";
+          }
           exp.innerHTML =
             "A Espanha é um país localizado no sudoeste da Europa, conhecido por sua rica história, cultura vibrante e paisagens diversas. A Espanha é o lar de uma variedade de regiões geográficas, desde as praias ensolaradas da Costa del Sol até as majestosas montanhas dos Pirenéus.";
         }
 
-        if (paisorigem == "Inglaterra" || paisorigem == "England" || paisorigem == "GB") {
+        if (
+          paisorigem == "Inglaterra" ||
+          paisorigem == "England" ||
+          paisorigem == "GB"
+        ) {
+          if(generoMasculino){
           res.innerHTML = nome + ", Você é Britânico! 🇬🇧";
+        } else if(generoFeminino){
+          res.innerHTML = nome + ", Você é Britânica! 🇬🇧";
+        }
           exp.innerHTML =
             "A Inglaterra é uma nação historicamente rica e culturalmente diversa que faz parte do Reino Unido, composto por quatro nações, incluindo Escócia, País de Gales e Irlanda do Norte. Localizada na ilha da Grã-Bretanha, a Inglaterra tem uma identidade distinta e uma história fascinante.";
         }
 
-        if (paisorigem == "França" || paisorigem == "FR" || paisorigem == "France") {
+        if (
+          paisorigem == "França" ||
+          paisorigem == "FR" ||
+          paisorigem == "France"
+        ) {
+          if(generoMasculino){
           res.innerHTML = nome + ", Você é Francês! 🇫🇷";
+        } else if(generoFeminino){
+          res.innerHTML = nome + ", Você é Francesa! 🇫🇷";
+          }
           exp.innerHTML =
             'A França, localizada no coração da Europa Ocidental, é uma nação que se destaca por sua rica cultura, história e contribuições significativas para as artes, culinária e moda. É conhecida como "a terra da liberdade, igualdade e fraternidade" e é famosa por sua revolução que inspirou valores democráticos em todo o mundo.';
         }
 
-        if (paisorigem == "Itália" || paisorigem == "Italy" || paisorigem == "IT") {
+        if (
+          paisorigem == "Itália" ||
+          paisorigem == "Italy" ||
+          paisorigem == "IT"
+        ) {
+          if(generoMasculino){
           res.innerHTML = nome + ", Você é italiano! 🇮🇹";
+        } else if (generoFeminino){
+          res.innerHTML = nome + ", Você é italiana! 🇮🇹";
+          }
           exp.innerHTML =
             "A Itália é uma nação icônica localizada na região sul da Europa, conhecida por sua rica história, cultura vibrante, culinária deliciosa e contribuições significativas para a arte e a ciência. Com uma herança que remonta ao Império Romano, a Itália desempenhou um papel fundamental na formação da civilização ocidental.";
         }
 
         if (paisorigem == "Portugal" || paisorigem == "PT") {
+          if(generoMasculino){
           res.innerHTML = nome + ", Você é Português! 🇵🇹";
+        } else if (generoFeminino){
+          res.innerHTML = nome + ", Você é Portuguesa! 🇵🇹";
+          }
           exp.innerHTML =
             "Portugal, situado na Península Ibérica, é uma nação encantadora e historicamente rica, conhecida por suas belas paisagens, cultura cativante e influências globais que datam dos tempos dos grandes exploradores.";
         }
 
-        if (paisorigem == "Índia" || paisorigem == "India" || paisorigem == "IN") {
+        if (
+          paisorigem == "Índia" ||
+          paisorigem == "India" ||
+          paisorigem == "IN"
+        ) {
+          if(generoMasculino){
           res.innerHTML = nome + ", Você é Indiano! 🇮🇳";
+        } else if(generoFeminino){
+          res.innerHTML = nome + ", Você é Indiana! 🇮🇳";
+          }
           exp.innerHTML =
             "A Índia, localizada no sul da Ásia, é uma nação diversificada e fascinante, conhecida por sua vasta história, cultura rica e uma população extraordinariamente grande e diversificada.";
         }
 
         if (paisorigem == "China" || paisorigem == "CN") {
-          res.innerHTML = nome + ", Você é Chinês! 🇨🇳";
+          if(generoMasculino){
+            res.innerHTML = nome + ", Você é Chinês! 🇨🇳";
+          } else if (generoFeminino){
+            res.innerHTML = nome + ", Você é Chinesa! 🇨🇳";
+          }
           exp.innerHTML =
             "A China, localizada no leste da Ásia, é uma nação vasta e diversificada, conhecida por sua longa história, cultura rica e influência global crescente. Com uma população de mais de 1,4 bilhão de pessoas, é o país mais populoso do mundo.";
         }
 
-        if (paisorigem == "Rússia" || paisorigem == "Russia" || paisorigem == "RU") {
-          res.innerHTML = nome + ", Você é Russo! 🇷🇺";
+        if (
+          paisorigem == "Rússia" ||
+          paisorigem == "Russia" ||
+          paisorigem == "RU"
+        ) {
+          if(generoMasculino){
+            res.innerHTML = nome + ", Você é Russo! 🇷🇺";
+          } else if(generoFeminino){
+            res.innerHTML = nome + ", Você é Russa! 🇷🇺";
+          }
           exp.innerHTML =
             "A Rússia, o maior país do mundo em termos de extensão geográfica, é uma nação vasta e diversificada localizada no norte da Eurásia. É conhecida por sua história rica e complexa, cultura única e paisagens impressionantes.";
         }
 
-        if (paisorigem == "Canadá" || paisorigem == "Canada" || paisorigem == "CA") {
+        if (
+          paisorigem == "Canadá" ||
+          paisorigem == "Canada" ||
+          paisorigem == "CA"
+        ) {
           res.innerHTML = nome + ", Você é Canadense! 🇨🇦";
           exp.innerHTML =
             "O Canadá, localizado na América do Norte, é uma nação vasta e diversificada conhecida por sua paisagem deslumbrante, qualidade de vida elevada e diversidade cultural.";
