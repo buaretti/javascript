@@ -29,6 +29,7 @@ main{
     padding: 30px;
     border-radius: 10px;
     max-width: 500px;
+    text-align: center;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.453);
 }
 
@@ -93,6 +94,27 @@ main  label:hover{
 #botao:hover{
     background-color: cornflowerblue;
     cursor: pointer;
+}
+
+#res{
+    margin-bottom: 20px;
+}
+
+#image{
+    text-align: center;
+}
+
+#imgsex{
+    width: 200px;
+    border-radius: 10px;
+    display: none;
+    vertical-align: middle;
+}
+
+#erro{
+    color: rgb(252, 66, 66);
+    font-size: 14px;
+    display: none;
 }
 
 footer{
