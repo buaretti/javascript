@@ -9,27 +9,101 @@
 body,html{
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     background-color: cornflowerblue;
+    
+}
+
+header{
+    padding: 30px;
 }
 
 header h1{
-    color: white;
+    color: #F2F2F2;
     text-align: center;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.453);
 }
 
 main{
-    background-color: white;
-    width: 70vw;
+    background-color: #F2F2F2;
+    width: 80vw;
     margin: auto;
     padding: 30px;
     border-radius: 10px;
+    max-width: 500px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.453);
+}
+
+#res{
+    
+    color: rgb(60, 60, 60);
+}
+
+main label{
+    color: rgb(60, 60, 60);
+}
+
+main  label:hover{
+    cursor: pointer;
+    color: black;
+}
+
+#anonasc{
+    margin-bottom: 20px;
+    width: 58px;
+    margin-left: 10px;
+    border-radius: 5px;
+    border: 1px solid grey;
+    height: 30px;
+    text-align: center;
+}
+
+#anonasc:hover{
+    cursor: pointer;
+}
+
+.labelg{
+    color: rgb(60, 60, 60);
+    font-size: 18px;
+}
+
+.labelg:hover{
+    color: black;
+}
+
+.radsex{
+    margin-bottom: 30px;
+    margin-left: 15px;
+}
+
+.radsex:hover{
+    cursor: pointer;
+}
+
+#botao{
+    background-color: rgb(82, 121, 194);
+    color: white;
+    width: 80px;
+    height: 40px;
+    border-radius: 10px;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 20px;
+    line-height: 35px;
+}
+
+#botao:hover{
+    background-color: cornflowerblue;
+    cursor: pointer;
 }
 
 footer{
     text-align: center;
+    font-style: italic;
+    padding: 20px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.453);
 }
 
 footer a {
-    color: white;
+    color: #F2F2F2;
     text-decoration: none;
 }
 
