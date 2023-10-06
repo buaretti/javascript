@@ -14,8 +14,16 @@ botao.addEventListener("click", function() {
     if (radsex) {
         sexo = radsex.id === "mas" ? "Homem" : "Mulher";
     }
-    
-    if (sexo === "Homem" && anos >= 0 && anos <= 4) {
+
+    if(anonasc > anoatual){
+        erro.style.display = "block";
+        imgsex.style.display = "none";
+        res.innerHTML = ""
+        setTimeout(function() {
+            erro.style.display = "none"; 
+        }, 3000);
+    } else if (sexo === "Homem" && anos >= 0 && anos <= 4) {
+
         // Mostrar a imagem e alterar o atributo src
         imgsex.style.display = "inline-block";
         imgsex.src = "images/bebe-m.jpg";
@@ -65,12 +73,11 @@ botao.addEventListener("click", function() {
         imgsex.src = "images/idoso-f.jpg";
         res.innerHTML = `Detectamos ${sexo} com ${anos} anos.`;
     } else {
-        // Se nenhuma condição for atendida, mostrar a mensagem de erro
         erro.style.display = "block";
+        res.innerHTML = ""
         imgsex.style.display = "none";
-        res.innerHTML = ""; // Limpar o conteúdo anterior
         setTimeout(function() {
-            erro.style.display = "none"; // Esconder a mensagem após 3 segundos
-        }, 3000); // 3000 milissegundos (3 segundos)
+            erro.style.display = "none"; 
+        }, 3000);
     }
 });
