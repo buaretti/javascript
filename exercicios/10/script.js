@@ -17,14 +17,14 @@ function clicou() {
             for (var c = inicio; c <= fim; c += passo) {
                 res.innerHTML += `${c}👉`;
             }
+            res.innerHTML += `✅`;
         } else if (inicio > fim && passo < 0) {
             for (var c = inicio; c >= fim; c += passo) {
                 res.innerHTML += `${c}👉`;
             }
+            res.innerHTML += `✅`;
         } else {
             res.innerHTML = "<p>Impossível contar</p>";
         }
-
-        res.innerHTML += `✅`;
     }
 }
