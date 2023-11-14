@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Relembrando</title>
+    <style>
+      body,
+      html {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
+        }
+        
+        body{
+          background-color: mediumpurple;
+      }
+
+      header {
+        text-align: center;
+        color: white;
+      }
+
+      header h1{
+        text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.479);
+      }
+
+      main {
+        padding: 30px;
+        background-color: white;
+        margin: 30px;
+        border-radius: 10px;
+        box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.45);
+      }
+
+      #botao {
+        background-color: blueviolet;
+        color: white;
+        text-align: center;
+        margin: auto;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        line-height: 100px;
+        margin-top: 30px;
+        box-shadow: inset 0 0 10px 5px rgba(0, 0, 0, 0.247);
+      }
+
+      footer {
+        text-align: center;
+      }
+
+      footer > a {
+        text-decoration: none;
+        color: white;
+        text-shadow: 1px 1px 6px black;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Relembrando</h1>
+    </header>
+    <main>
+      <h2>Lorem</h2>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Asperiores,
+        dolorum aliquid quos corporis temporibus soluta voluptates beatae. Cum,
+        quam fuga sint deserunt provident aliquam velit? Asperiores quos odio
+        incidunt officia.
+      </p>
+      <h2>Lorem</h2>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste illum
+        voluptas, minus deserunt ipsum autem non voluptates repellat labore
+        officia sunt? Alias nesciunt eius rem sint est voluptatem, distinctio
+        quo!
+      </p>
+      <div id="botao">Clique aqui!</div>
+    </main>
+    <footer>
+      <a href="https://github.com/buaretti">&copy;Marcelo Buaretti</a>
+    </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var botao = document.querySelector("#botao");
+        var fundo = document.body
+        botao.addEventListener("mouseenter", function () {
+          botao.innerHTML = "Entrou!";
+          botao.style.backgroundColor = 'blue'
+          fundo.style.backgroundColor = 'blue'
+        });
+        botao.addEventListener("mouseout", function () {
+            botao.innerHTML = "Saiu!";
+            botao.style.backgroundColor = 'crimson'
+            fundo.style.backgroundColor = 'crimson'
+        });
+        botao.addEventListener("click", function () {
+            botao.innerHTML = "Clicou!";
+            botao.style.backgroundColor = 'green'
+            fundo.style.backgroundColor = 'green'
+        });
+      });
+    </script>
+  </body>
+</html>
