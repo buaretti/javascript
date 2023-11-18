@@ -3,9 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Exibir Números Pares</title>
 </head>
 <body>
+    <p>3. Crie um algoritmo para ler 10 números e mostrar somente os números pares deste vetor</p>
     
+    <ul id="numerosPares"></ul>
+
+    <script>
+        let vetor = []
+        const vetorTamanho = 10
+        const numerosParesList = document.getElementById('numerosPares')
+
+        for (let c = 0; c < vetorTamanho; c++) {
+            let numero = parseInt(window.prompt(`Digite o ${c + 1}º valor`))
+            vetor.push(numero)
+        }
+
+        for (let c = 0; c < vetorTamanho; c++) {
+            if (vetor[c] % 2 === 0) {
+                let li = document.createElement('li')
+                li.textContent = vetor[c]
+                numerosParesList.appendChild(li)
+            }
+        }
+    </script>
 </body>
 </html>
