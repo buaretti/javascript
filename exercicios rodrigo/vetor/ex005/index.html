@@ -1,11 +1,41 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
 </head>
 <body>
-    
+    <p>
+        5. Crie um programa que leia 4 notas de um aluno e armazene em um vetor. O
+        programa não pode permitir que seja armazenado notas menores que 0 e
+        maiores que 10. Após ler todas as notas, mostre as notas e a média
+        aritmética das notas.
+    </p>
+    <div id="notas"></div>
+    <div id="media"></div>
 </body>
+<script>
+    let vetor = [];
+    const tamanhoVetor = 4;
+    var notasElement = document.getElementById("notas");
+    var mediaElement = document.getElementById("media");
+    var soma = 0;
+
+    for (var c = 0; c < tamanhoVetor; c++) {
+        var nota = parseFloat(window.prompt(`Digite a ${c + 1}º nota do aluno:`));
+        if (nota >= 0 && nota <= 10) {
+            vetor.push(nota);
+            soma += nota;
+        } else {
+            window.alert("A nota deve estar entre 0 e 10!");
+            c--; // Permite que o usuário insira novamente a nota inválida
+        }
+    }
+
+    var media = soma / tamanhoVetor;
+
+    notasElement.innerHTML = `Notas do aluno: ${vetor.join(', ')}`;
+    mediaElement.innerHTML = `Média aritmética: ${media.toFixed(2)}`;
+</script>
 </html>
