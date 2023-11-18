@@ -1,11 +1,37 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <p>
+      8. Crie um programa que tenha dois vetores v1 e v2 ambos com 4 posições.
+      Armazene no vetor v1 nomes de pessoas informados pelo usuário. Após ler
+      todos os nomes, transfira os nomes para o vetor v2 de forma inversa, de
+      modo que a posição v1[0] transfira seu valor para o vetor v2 na posição 3,
+      invertendo a ordem
+    </p>
+    <div id="resp"></div>
+  </body>
+  <script>
+    let v1 = []
+    let v2 = []
+    var resp = document.getElementById("resp")
+
+    for(var c = 0; c < 4; c++){
+        nome = window.prompt(`Insira o ${c + 1}º nome:`)
+        v1.push(nome)
+    }
+
+    v1.reverse()
+
+    for(var c = 0; c < 4; c++){
+        v2.push(v1[c])
+    }
+
+    resp.innerHTML = (`${v2}`)
+
+  </script>
 </html>
