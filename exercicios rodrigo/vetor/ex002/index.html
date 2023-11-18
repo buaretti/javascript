@@ -3,9 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Exibir Valores do Vetor</title>
 </head>
 <body>
-    
+    <p>2. Crie um vetor com 40 posições e preencha com o valor 5 as posições pares e 10 as
+        posições ímpares do vetor. Após preencher mostre na tela todas as posições do
+        vetor.</p>
+    <ul id="valoresVetor"></ul>
+
+    <script>
+        let vetor = [];
+        const tamanhoVetor = 40;
+
+        for (let c = 0; c < tamanhoVetor; c++) {
+            if (c % 2 === 0) {
+                vetor.push(5);
+            } else {
+                vetor.push(10);
+            }
+        }
+
+        const listaValores = document.getElementById('valoresVetor');
+
+        // Exibindo cada valor do vetor em um item de lista
+        vetor.forEach(valor => {
+            const itemLista = document.createElement('li');
+            itemLista.textContent = valor;
+            listaValores.appendChild(itemLista);
+        });
+    </script>
 </body>
 </html>
