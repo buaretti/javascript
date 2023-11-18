@@ -6,6 +6,27 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <p>7. Faça um algoritmo para ler um vetor com 10 elementos e inverter a posição destes
+        elementos, de tal modo que o primeiro elemento venha a ser o último depois da
+        inversão.</p>
+    <div id="resp"></div>
 </body>
+<script>
+    let vetor = []
+    const tamanhoVetor = 10
+    var resp = document.getElementById("resp")
+    for(var c = 0; c < tamanhoVetor; c++){
+        numero = parseInt(window.prompt(`Digite o ${c + 1}º valor: `))
+        vetor.push(numero)
+    }
+
+     vetor.reverse()
+
+    for(var c = 0; c < tamanhoVetor; c++){
+        resp.innerHTML += `${vetor[c]}`
+        if (c !== tamanhoVetor - 1) {
+            resp.innerHTML += ", "
+        }
+    }
+</script>
 </html>
