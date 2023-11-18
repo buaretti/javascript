@@ -1,11 +1,30 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <p>
+      9. Crie um programa que leia 10 números e armazene em um vetor. Após fazer
+      a leitura, ordene os valores dentro do vetor em ordem crescente. Mostre o
+      resultado na tela.
+    </p>
+    <div id="resp"></div>
+  </body>
+  <script>
+    let vetor = []
+    var resp = document.getElementById("resp");
+    for (var c = 0; c < 10; c++) {
+      var valor = parseInt(window.prompt(`Digite a ${c + 1}º valor:`))
+      vetor.push(valor)
+    }
+
+    vetor.sort(function (a, b) {
+      return a - b
+    })
+
+    resp.innerHTML = `Valores ordenados: ${vetor}`
+  </script>
 </html>
