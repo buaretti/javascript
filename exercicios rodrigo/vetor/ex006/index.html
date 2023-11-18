@@ -1,11 +1,53 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
 </head>
 <body>
-    
+    <p>
+        6. Altere o exercício anterior de modo que no final, além da média, apresente também
+        a maior nota e a menor nota
+    </p>
+    <div id="notas"></div>
+    <div id="media"></div>
+    <div id="maiornota"></div>
+    <div id="menornota"></div>
 </body>
+<script>
+    let vetor = [];
+    const tamanhoVetor = 4;
+    var notasElement = document.getElementById("notas");
+    var maiornotaElement = document.getElementById("maiornota");
+    var menornotaElement = document.getElementById("menornota");
+    var mediaElement = document.getElementById("media");
+    var soma = 0;
+    var maiornota = Number.MIN_VALUE;
+    var menornota = Number.MAX_VALUE;
+
+    for (var c = 0; c < tamanhoVetor; c++) {
+        var nota = parseFloat(window.prompt(`Digite a ${c + 1}º nota do aluno:`));
+        if (nota >= 0 && nota <= 10) {
+            vetor.push(nota);
+            soma += nota;
+            if(nota > maiornota){
+                maiornota = nota
+            }
+            if(nota < menornota){
+                menornota = nota
+            }
+        } else {
+            window.alert("A nota deve estar entre 0 e 10!");
+            c--; // Permite que o usuário insira novamente a nota inválida
+        }
+    }
+
+    var media = soma / tamanhoVetor;
+
+    notasElement.innerHTML = `Notas do aluno: ${vetor.join(', ')}`;
+    mediaElement.innerHTML = `Média aritmética: ${media.toFixed(2)}`;
+    maiornotaElement.innerHTML = `Maior nota: ${maiornota}`;
+    menornotaElement.innerHTML = `Menor nota: ${menornota}`;
+</script>
 </html>
