@@ -6,6 +6,26 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <p>
+        4. Crie uma vetor de 8 posições e preencha cada posição com valores que o usuário digitar. Após preencher todas as posições, mostre na tela cada posição do vetor.
+    </p>
+    <div id="resp"></div>
 </body>
+<script>
+    var resp = document.getElementById("resp")
+    let vetor = []
+    const vetorTamanho = 8
+
+    for(var c = 0; c < vetorTamanho; c++){
+        var numero = parseInt(window.prompt(`Digite o ${c + 1}º valor:`))
+        vetor.push(numero)
+    }
+
+    for(var c = 0; c < vetorTamanho; c++){
+        resp.innerHTML += vetor[c]
+        if (c !== vetorTamanho - 1) {
+            resp.innerHTML += ", "
+        }
+    }
+</script>
 </html>
