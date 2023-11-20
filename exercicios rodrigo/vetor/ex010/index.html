@@ -1,11 +1,94 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <p>
+      10. Crie um algoritmo para controlar as cartas de um baralho. Onde seu
+      programa deve entregar 3 cartas para 4 jogadores e não poderá entregar
+      cartas que já saíram (foram entregues) a outro jogador. Para sortear as
+      cartas você pode utilizar a função Sorteia que está dentro da biblioteca
+      Util.
+    </p>
+
+    <div id="resultado"></div>
+
+  </body>
+  <script>
+    function sortearCarta(baralho) {
+      const index = Math.floor(Math.random() * baralho.length);
+      const cartaSorteada = baralho.splice(index, 1)[0]; 
+      return cartaSorteada;
+    }
+
+
+    function distribuirCartasParaJogadores() {
+      const baralho = [
+        "4 de Espadas",
+        "5 de Espadas",
+        "6 de Espadas",
+        "7 de Espadas",
+        "Q de Espadas",
+        "J de Espadas",
+        "K de Espadas",
+        "A de Espadas",
+        "2 de Espadas",
+        "3 de Espadas",
+        "4 de Paus",
+        "5 de Paus",
+        "6 de Paus",
+        "7 de Paus",
+        "Q de Paus",
+        "J de Paus",
+        "K de Paus",
+        "A de Paus",
+        "2 de Paus",
+        "3 de Paus",
+        "4 de Copas",
+        "5 de Copas",
+        "6 de Copas",
+        "7 de Copas",
+        "Q de Copas",
+        "J de Copas",
+        "K de Copas",
+        "A de Copas",
+        "2 de Copas",
+        "3 de Copas",
+        "4 de Ouros",
+        "5 de Ouros",
+        "6 de Ouros",
+        "7 de Ouros",
+        "Q de Ouros",
+        "J de Ouros",
+        "K de Ouros",
+        "A de Ouros",
+        "2 de Ouros",
+        "3 de Ouros",
+      ];
+
+      const jogadores = [[], [], [], []]; 
+
+      for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < jogadores.length; j++) {
+          const carta = sortearCarta(baralho);
+          jogadores[j].push(carta);
+        }
+      }
+
+      return jogadores;
+    }
+
+    const cartasDosJogadores = distribuirCartasParaJogadores();
+
+    const resultadoDiv = document.getElementById('resultado');
+
+    for (let i = 0; i < cartasDosJogadores.length; i++) {
+    const jogadorDiv = document.createElement('div');
+    jogadorDiv.textContent = `Cartas do Jogador ${i + 1}: ${cartasDosJogadores[i].join(', ')}`;
+    resultadoDiv.appendChild(jogadorDiv);
+  }
+  </script>
 </html>
