@@ -1,11 +1,98 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <title>Maior e Menor Elemento da Matriz</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      margin: 20px;
+    }
+    table, th, td {
+      border: 1px solid black;
+      padding: 8px;
+    }
+  </style>
 </head>
 <body>
-    
+    <p>9. Crie uma matriz de 3 x 3 posições, leia um valor para cada posição e mostre na tela, as
+        posições do maior e menor elemento da matriz junto com seu respectivo valor</p>
+
+<h2>Maior e Menor Elemento da Matriz</h2>
+<table id="matriz"></table>
+<p id="maiorMenorElemento"></p>
+
+<script>
+  function criarMatriz() {
+    let matriz = [];
+    for (let i = 0; i < 3; i++) {
+      matriz.push([0, 0, 0]);
+    }
+    return matriz;
+  }
+
+  function preencherMatriz(matriz) {
+    for (let i = 0; i < 3; i++) {
+      for (let j = 0; j < 3; j++) {
+        matriz[i][j] = parseInt(prompt(`Digite um valor para a posição [${i}][${j}]:`));
+      }
+    }
+    return matriz;
+  }
+
+  function encontrarMaiorElemento(matriz) {
+    let maiorValor = matriz[0][0];
+    let posicaoMaior = [0, 0];
+
+    for (let i = 0; i < 3; i++) {
+      for (let j = 0; j < 3; j++) {
+        if (matriz[i][j] > maiorValor) {
+          maiorValor = matriz[i][j];
+          posicaoMaior = [i, j];
+        }
+      }
+    }
+    return { valor: maiorValor, posicao: posicaoMaior };
+  }
+
+  function encontrarMenorElemento(matriz) {
+    let menorValor = matriz[0][0];
+    let posicaoMenor = [0, 0];
+
+    for (let i = 0; i < 3; i++) {
+      for (let j = 0; j < 3; j++) {
+        if (matriz[i][j] < menorValor) {
+          menorValor = matriz[i][j];
+          posicaoMenor = [i, j];
+        }
+      }
+    }
+    return { valor: menorValor, posicao: posicaoMenor };
+  }
+
+  function exibirMatrizEElementos(matriz, maiorElemento, menorElemento) {
+    let table = document.getElementById('matriz');
+    table.innerHTML = '';
+
+    for (let i = 0; i < 3; i++) {
+      let row = table.insertRow();
+      for (let j = 0; j < 3; j++) {
+        let cell = row.insertCell();
+        cell.textContent = matriz[i][j];
+      }
+    }
+
+    let maiorMenorElemento = document.getElementById('maiorMenorElemento');
+    maiorMenorElemento.textContent = `Maior elemento: ${maiorElemento.valor}, Posição: [${maiorElemento.posicao}] | Menor elemento: ${menorElemento.valor}, Posição: [${menorElemento.posicao}]`;
+  }
+
+  let matriz = criarMatriz();
+  matriz = preencherMatriz(matriz);
+  let maiorElemento = encontrarMaiorElemento(matriz);
+  let menorElemento = encontrarMenorElemento(matriz);
+
+  exibirMatrizEElementos(matriz, maiorElemento, menorElemento);
+</script>
+
 </body>
 </html>
