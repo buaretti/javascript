@@ -1,11 +1,80 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <title>Matriz e Matriz Transposta</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      margin: 20px;
+    }
+    table, th, td {
+      border: 1px solid black;
+      padding: 8px;
+    }
+  </style>
 </head>
 <body>
-    
+
+    <p>5. Crie um algoritmo que crie uma matriz de 4x4 posições leia o conteúdo para cada
+        posição, faça em seguida uma matriz transposta girar em sentido os valores dentro da
+        matriz, veja o exemplo abaixo. Mostre as duas matrizes na tela</p>
+
+<h2>Matriz Original</h2>
+<table id="matrizOriginal"></table>
+
+<h2>Matriz Transposta</h2>
+<table id="matrizTransposta"></table>
+
+<script>
+  function criarMatriz() {
+    let matriz = [];
+    for (let i = 0; i < 4; i++) {
+      matriz.push([0, 0, 0, 0]);
+    }
+    return matriz;
+  }
+
+  function preencherMatriz(matriz) {
+    for (let i = 0; i < 4; i++) {
+      for (let j = 0; j < 4; j++) {
+        matriz[i][j] = parseInt(prompt(`Digite o valor para a posição [${i}][${j}]:`));
+      }
+    }
+    return matriz;
+  }
+
+  function calcularMatrizTransposta(matriz) {
+    let transposta = [];
+    for (let i = 0; i < 4; i++) {
+      transposta.push([]);
+      for (let j = 0; j < 4; j++) {
+        transposta[i].push(matriz[j][i]);
+      }
+    }
+    return transposta;
+  }
+
+  function exibirMatrizNaTabela(matriz, idTabela) {
+    let table = document.getElementById(idTabela);
+    table.innerHTML = '';
+
+    for (let i = 0; i < 4; i++) {
+      let row = table.insertRow();
+      for (let j = 0; j < 4; j++) {
+        let cell = row.insertCell();
+        cell.textContent = matriz[i][j];
+      }
+    }
+  }
+
+  let matrizOriginal = criarMatriz();
+  matrizOriginal = preencherMatriz(matrizOriginal);
+  let matrizTransposta = calcularMatrizTransposta(matrizOriginal);
+
+  exibirMatrizNaTabela(matrizOriginal, 'matrizOriginal');
+  exibirMatrizNaTabela(matrizTransposta, 'matrizTransposta');
+</script>
+
 </body>
 </html>
