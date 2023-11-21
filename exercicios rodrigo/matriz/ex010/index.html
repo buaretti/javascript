@@ -1,11 +1,71 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <title>Cartelas de Bingo</title>
+  <style>
+    .cartela {
+      border: 1px solid black;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+  </style>
 </head>
 <body>
+<p>10. Faça um algoritmo para gerar 3 cartelas de bingo, as cartelas possuem números entre
+    1 e 99, cada cartela possui 5 linhas com 5 números em cada linha. Gere os números para
+    cada cartela, de forma que os números não possam repetir dentro de uma cartela. Imprima
+    na tela cada uma das cartelas</p>
     
+<h2>Cartelas de Bingo</h2>
+<div id="cartelas"></div>
+
+<script>
+  function gerarCartela() {
+    let cartela = [];
+    let numerosUtilizados = new Set();
+
+    while (numerosUtilizados.size < 25) {
+      let numero = Math.floor(Math.random() * 99) + 1;
+      if (!numerosUtilizados.has(numero)) {
+        numerosUtilizados.add(numero);
+        cartela.push(numero);
+      }
+    }
+
+    return cartela;
+  }
+
+  function criarCartelas() {
+    let cartelas = [];
+    for (let i = 0; i < 3; i++) {
+      cartelas.push(gerarCartela());
+    }
+    return cartelas;
+  }
+
+  function exibirCartelas(cartelas) {
+    let cartelasDiv = document.getElementById('cartelas');
+    cartelasDiv.innerHTML = '';
+
+    cartelas.forEach((cartela, index) => {
+      let cartelaDiv = document.createElement('div');
+      cartelaDiv.classList.add('cartela');
+      cartelaDiv.innerHTML = `<h3>Cartela ${index + 1}</h3>`;
+      
+      for (let i = 0; i < 5; i++) {
+        let linha = document.createElement('p');
+        linha.textContent = cartela.slice(i * 5, (i + 1) * 5).join(' | ');
+        cartelaDiv.appendChild(linha);
+      }
+
+      cartelasDiv.appendChild(cartelaDiv);
+    });
+  }
+
+  let cartelas = criarCartelas();
+  exibirCartelas(cartelas);
+</script>
+
 </body>
 </html>
