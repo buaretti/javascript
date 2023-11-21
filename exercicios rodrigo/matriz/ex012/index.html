@@ -1,11 +1,81 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <title>Jogo da Velha</title>
+  <style>
+    .board {
+      display: grid;
+      grid-template-columns: repeat(3, 100px);
+      grid-template-rows: repeat(3, 100px);
+      gap: 2px;
+      margin-bottom: 10px;
+    }
+    .cell {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      background-color: #eee;
+      cursor: pointer;
+    }
+    .cell:hover {
+      background-color: #ddd;
+    }
+  </style>
 </head>
 <body>
-    
+    <p>12. Crie um jogo da velha, você precisa desenhar o tabuleiro na tela, ler a posição que os
+        jogadores irão colocar o X ou O e dizer quem é o vencedor da partida</p>
+  <h1>Jogo da Velha</h1>
+  <div class="board" id="board">
+    <div class="cell" onclick="realizarJogada(0)"></div>
+    <div class="cell" onclick="realizarJogada(1)"></div>
+    <div class="cell" onclick="realizarJogada(2)"></div>
+    <div class="cell" onclick="realizarJogada(3)"></div>
+    <div class="cell" onclick="realizarJogada(4)"></div>
+    <div class="cell" onclick="realizarJogada(5)"></div>
+    <div class="cell" onclick="realizarJogada(6)"></div>
+    <div class="cell" onclick="realizarJogada(7)"></div>
+    <div class="cell" onclick="realizarJogada(8)"></div>
+  </div>
+  <p id="mensagem"></p>
+
+  <script>
+    let tabuleiro = ['', '', '', '', '', '', '', '', ''];
+    let jogadorAtual = 'X';
+    let jogoAcabou = false;
+
+    const combinacoesVencedoras = [
+      [0, 1, 2], [3, 4, 5], [6, 7, 8],
+      [0, 3, 6], [1, 4, 7], [2, 5, 8],
+      [0, 4, 8], [2, 4, 6]
+    ];
+
+    function realizarJogada(indice) {
+      if (!jogoAcabou && tabuleiro[indice] === '') {
+        tabuleiro[indice] = jogadorAtual;
+        document.getElementsByClassName('cell')[indice].innerText = jogadorAtual;
+        verificarVencedor();
+        jogadorAtual = jogadorAtual === 'X' ? 'O' : 'X';
+      }
+    }
+
+    function verificarVencedor() {
+      for (let i = 0; i < combinacoesVencedoras.length; i++) {
+        const [a, b, c] = combinacoesVencedoras[i];
+        if (tabuleiro[a] !== '' && tabuleiro[a] === tabuleiro[b] && tabuleiro[a] === tabuleiro[c]) {
+          jogoAcabou = true;
+          document.getElementById('mensagem').innerText = `Jogador ${tabuleiro[a]} venceu!`;
+          return;
+        }
+      }
+
+      if (!tabuleiro.includes('')) {
+        jogoAcabou = true;
+        document.getElementById('mensagem').innerText = 'Deu velha! Não há vencedores.';
+      }
+    }
+  </script>
 </body>
 </html>
