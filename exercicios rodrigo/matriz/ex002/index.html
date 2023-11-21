@@ -6,6 +6,37 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <p>2. Crie uma matriz 4x4 posições e preencha o valor 1 somente na diagonal, após
+        preencher mostre na tela a matriz</p>
 </body>
+<script>
+function preencherMatriz() {
+  const matriz = [];
+
+  for (let i = 0; i < 4; i++) {
+    matriz[i] = [];
+    for (let j = 0; j < 4; j++) {
+      matriz[i][j] = 0;
+    }
+  }
+
+  for (let i = 0; i < 4; i++) {
+    matriz[i][i] = 1;
+  }
+
+  return matriz;
+}
+
+function mostrarMatriz(matriz) {
+  for (let i = 0; i < matriz.length; i++) {
+    for (let j = 0; j < matriz[i].length; j++) {
+      document.write(matriz[i][j] + ' ');
+    }
+    document.write('<br>');
+  }
+}
+
+const matriz = preencherMatriz();
+mostrarMatriz(matriz);
+</script>
 </html>
