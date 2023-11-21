@@ -1,11 +1,71 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <title>Matriz sem Valores Repetidos</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      margin: 20px;
+    }
+    table, th, td {
+      border: 1px solid black;
+      padding: 8px;
+    }
+  </style>
 </head>
 <body>
-    
+<p>6. Crie um algoritmo que crie uma matriz de 3 x 3 posições, leia um valor para cada
+    posição da matriz, de forma que não permita armazenar valores que já existam na matriz.
+    Mostre no fim o valor de cada posição da matriz.</p>
+<h2>Valores da Matriz</h2>
+<table id="matrizValores"></table>
+
+<script>
+  function criarMatriz() {
+    let matriz = [];
+    for (let i = 0; i < 3; i++) {
+      matriz.push([0, 0, 0]);
+    }
+    return matriz;
+  }
+
+  function preencherMatrizSemRepeticao(matriz) {
+    let numerosInseridos = new Set();
+
+    for (let i = 0; i < 3; i++) {
+      for (let j = 0; j < 3; j++) {
+        let valor = parseInt(prompt(`Digite um valor para a posição [${i}][${j}]:`));
+
+        while (numerosInseridos.has(valor)) {
+          valor = parseInt(prompt(`Esse valor já foi inserido. Por favor, digite outro valor:`));
+        }
+
+        matriz[i][j] = valor;
+        numerosInseridos.add(valor);
+      }
+    }
+    return matriz;
+  }
+
+  function exibirMatrizValores(matriz) {
+    let table = document.getElementById('matrizValores');
+    table.innerHTML = '';
+
+    for (let i = 0; i < 3; i++) {
+      let row = table.insertRow();
+      for (let j = 0; j < 3; j++) {
+        let cell = row.insertCell();
+        cell.textContent = matriz[i][j];
+      }
+    }
+  }
+
+  let matrizValores = criarMatriz();
+  matrizValores = preencherMatrizSemRepeticao(matrizValores);
+
+  exibirMatrizValores(matrizValores);
+</script>
+
 </body>
 </html>
