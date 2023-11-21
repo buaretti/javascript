@@ -1,11 +1,80 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <title>Soma das Linhas da Matriz</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      margin: 20px;
+    }
+    table, th, td {
+      border: 1px solid black;
+      padding: 8px;
+    }
+  </style>
 </head>
 <body>
-    
+<p>7. Faça um algoritmo que leia uma matriz de 3x3 posições, mostre na tela a soma de cada
+    linha da matriz.</p>
+
+
+<h2>Soma das Linhas da Matriz</h2>
+<table id="matriz"></table>
+<p id="somas"></p>
+
+<script>
+  function criarMatriz() {
+    let matriz = [];
+    for (let i = 0; i < 3; i++) {
+      matriz.push([0, 0, 0]);
+    }
+    return matriz;
+  }
+
+  function preencherMatriz(matriz) {
+    for (let i = 0; i < 3; i++) {
+      for (let j = 0; j < 3; j++) {
+        matriz[i][j] = parseInt(prompt(`Digite um valor para a posição [${i}][${j}]:`));
+      }
+    }
+    return matriz;
+  }
+
+  function calcularSomaDasLinhas(matriz) {
+    let somas = [];
+    for (let i = 0; i < 3; i++) {
+      let soma = 0;
+      for (let j = 0; j < 3; j++) {
+        soma += matriz[i][j];
+      }
+      somas.push(soma);
+    }
+    return somas;
+  }
+
+  function exibirMatrizEValorDasSomas(matriz, somas) {
+    let table = document.getElementById('matriz');
+    table.innerHTML = '';
+
+    for (let i = 0; i < 3; i++) {
+      let row = table.insertRow();
+      for (let j = 0; j < 3; j++) {
+        let cell = row.insertCell();
+        cell.textContent = matriz[i][j];
+      }
+    }
+
+    let somasElement = document.getElementById('somas');
+    somasElement.textContent = `Soma das linhas: ${somas.join(', ')}`;
+  }
+
+  let matriz = criarMatriz();
+  matriz = preencherMatriz(matriz);
+  let somasDasLinhas = calcularSomaDasLinhas(matriz);
+
+  exibirMatrizEValorDasSomas(matriz, somasDasLinhas);
+</script>
+
 </body>
 </html>
