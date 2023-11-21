@@ -6,6 +6,36 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <p>
+        1. Crie uma matriz de 4 x 4 posições, leia valores para todas as posições da matriz em
+        seguida mostre na tela a posição da matriz e o valor armazenado.
+    </p>
+    <table id="matrixTable"></table>
 </body>
+<script>
+  
+function criarMatriz() {
+  const matriz = [];
+  const table = document.getElementById('matrixTable');
+
+  for (let i = 0; i < 4; i++) {
+    const row = document.createElement('tr');
+    matriz[i] = [];
+
+    for (let j = 0; j < 4; j++) {
+      const cell = document.createElement('td');
+      const inputValue = prompt(`Insira o valor para a posição [${i}][${j}]:`);
+      const value = parseFloat(inputValue);
+
+      matriz[i][j] = value;
+      cell.textContent = `[${i}][${j}]: ${value}`;
+      row.appendChild(cell);
+    }
+
+    table.appendChild(row);
+  }
+}
+window.onload = criarMatriz;
+
+</script>
 </html>
