@@ -1,11 +1,58 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <title>Matriz com Diagonal de Uns</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      margin: 20px;
+    }
+    table, th, td {
+      border: 1px solid black;
+      padding: 8px;
+    }
+  </style>
 </head>
 <body>
-    
+
+    <p>3. altere o exercício anterior e exiba a matriz da seguinte forma</p>
+
+<table id="matriz"></table>
+
+<script>
+  function criarMatriz() {
+    let matriz = [];
+    for (let i = 0; i < 4; i++) {
+      matriz.push([0, 0, 0, 0]);
+    }
+    return matriz;
+  }
+
+  function preencherDiagonal(matriz) {
+    for (let i = 0; i < 4; i++) {
+      matriz[i][i] = 1;
+    }
+    return matriz;
+  }
+
+  function exibirMatrizNaTabela(matriz) {
+    let table = document.getElementById('matriz');
+    table.innerHTML = '';
+
+    for (let i = 0; i < 4; i++) {
+      let row = table.insertRow();
+      for (let j = 0; j < 4; j++) {
+        let cell = row.insertCell();
+        cell.appendChild(document.createTextNode(matriz[i][j]));
+      }
+    }
+  }
+
+  let matriz = criarMatriz();
+  matriz = preencherDiagonal(matriz);
+  exibirMatrizNaTabela(matriz);
+</script>
+
 </body>
 </html>
