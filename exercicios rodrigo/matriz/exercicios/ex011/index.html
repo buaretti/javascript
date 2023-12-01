@@ -9,7 +9,7 @@
   <p>Números utilizados: <span id="numerosUsados"></span></p>
 
   <script>
-    const matriz = [
+    const matriz =  [
   [8,2,22,97,38,15,0,40,0,75,4,5,7,78,52,12,50,77,91,8],
   [49,49,99,40,17,81,18,57,60,87,17,40,98,43,69,48,4,56,62,0],
   [81,49,31,73,55,79,14,29,93,71,40,67,53,88,30,3,49,13,36,65],
@@ -46,19 +46,52 @@
       return { produto: maiorProduto, numeros: numerosUtilizados };
     }
 
+    function calcularMaiorProdutoNaColuna(matriz, colIndex) {
+      let maiorProduto = 0;
+      let numerosUtilizados = [];
+
+      for (let i = 0; i < matriz.length - 3; i++) {
+        const produto = matriz[i][colIndex] * matriz[i + 1][colIndex] * matriz[i + 2][colIndex] * matriz[i + 3][colIndex];
+        if (produto > maiorProduto) {
+          maiorProduto = produto;
+          numerosUtilizados = [matriz[i][colIndex], matriz[i + 1][colIndex], matriz[i + 2][colIndex], matriz[i + 3][colIndex]];
+        }
+      }
+      return { produto: maiorProduto, numeros: numerosUtilizados };
+    }
+
+    function calcularMaiorProdutoNaDiagonal(matriz) {
+      let maiorProduto = 0;
+      let numerosUtilizados = [];
+
+      for (let i = 0; i < matriz.length - 3; i++) {
+        for (let j = 0; j < matriz[i].length - 3; j++) {
+          const produto = matriz[i][j] * matriz[i + 1][j + 1] * matriz[i + 2][j + 2] * matriz[i + 3][j + 3];
+          if (produto > maiorProduto) {
+            maiorProduto = produto;
+            numerosUtilizados = [matriz[i][j], matriz[i + 1][j + 1], matriz[i + 2][j + 2], matriz[i + 3][j + 3]];
+          }
+        }
+      }
+      return { produto: maiorProduto, numeros: numerosUtilizados };
+    }
+
     function encontrarMaiorProduto(matriz) {
       let maiorProduto = 0;
       let numerosUtilizados = [];
 
-      for (let i = 0; i < matriz.length; i++) {
-        const linha = matriz[i];
-        const { produto: produtoLinha, numeros: numerosLinha } = calcularMaiorProdutoNaLinha(linha);
+      const linha = matriz.map(row => calcularMaiorProdutoNaLinha(row));
+      const coluna = matriz[0].map((col, i) => calcularMaiorProdutoNaColuna(matriz, i));
+      const diagonal = calcularMaiorProdutoNaDiagonal(matriz);
 
-        if (produtoLinha > maiorProduto) {
-          maiorProduto = produtoLinha;
-          numerosUtilizados = numerosLinha;
+      const produtos = linha.concat(coluna).concat([diagonal]);
+
+      produtos.forEach(({ produto, numeros }) => {
+        if (produto > maiorProduto) {
+          maiorProduto = produto;
+          numerosUtilizados = numeros;
         }
-      }
+      });
 
       return { produto: maiorProduto, numeros: numerosUtilizados };
     }
