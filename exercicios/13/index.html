@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Interativo de Astronomia</title>
+    <style>
+      body,
+      html {
+        margin: 0px;
+        padding: 0px;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
+      }
+
+      body {
+        background-image: url(fotos/foto\ galaxy.jpg);
+        background-position: right;
+        background-attachment: fixed;
+        font-size: 16px;
+      }
+
+      header {
+        text-align: center;
+        padding: 10px;
+      }
+
+      header,
+      h1 {
+        color: white;
+      }
+
+      main {
+        background-color: white;
+        padding: 30px;
+        padding-top: 1px;
+        padding-bottom: 15px;
+        margin: 50px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        border-radius: 10px;
+      }
+
+      main h2 {
+        font-size: 20px;
+        color: #322073;
+      }
+
+      label {
+        margin-right: 110px;
+      }
+
+      #penviar {
+        text-align: center;
+        margin: 0px;
+        margin-top: 30px;
+        color: #322073;
+        font-size: 20px;
+      }
+
+      #enviar {
+        width: 100px;
+        height: 50px;
+      }
+
+      footer {
+        text-align: center;
+        padding: 10px;
+        color: white;
+      }
+
+      footer a {
+        color: white;
+        text-decoration: none;
+      }
+
+      footer > a:hover {
+        text-decoration: underline;
+      }
+
+      #timer {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background-color: #fff;
+        padding: 10px;
+        border: 1px solid #ccc;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        z-index: 9999;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Quiz Interativo de Astronomia 🌑</h1>
+    </header>
+    <main>
+      <div id="timer">0s</div>
+      <form id="quiz">
+        <h2>
+          Pergunta 1: Qual é o nome da estrela mais próxima da Terra, depois do
+          Sol?
+        </h2>
+
+        <input type="radio" name="p1" id="p1q1" />
+        <label for="p1q1">a) Proxima Centauri </label>
+
+        <input type="radio" name="p1" id="p1q2" />
+        <label for="p1q2">b) Alfa Centauri C</label>
+        <br />
+
+        <input type="radio" name="p1" id="p1q3" />
+        <label for="p1q3">c) Estrela de Barnard</label>
+
+        <input type="radio" name="p1" id="p1q4" />
+        <label for="p1q4">d) Betelgeuse </label>
+
+        <h2>
+          Pergunta 2: Qual é o nome da agência espacial dos Estados Unidos
+          responsável por missões espaciais tripuladas?
+        </h2>
+
+        <input type="radio" name="p2" id="p2q1" />
+        <label for="p2q1"
+          >a) NASA (National Aeronautics and Space Administration)</label
+        >
+        <br />
+
+        <input type="radio" name="p2" id="p2q2" />
+        <label for="p2q2">b) ESA (European Space Agency)</label>
+        <br />
+        <input type="radio" name="p2" id="p2q3" />
+        <label for="p2q3">c) CNSA (China National Space Administration)</label>
+        <br />
+        <input type="radio" name="p2" id="p2q4" />
+        <label for="p2q4">d) ISRO (Indian Space Research Organisation)</label>
+
+        <h2>Pergunta 3: Qual é o planeta mais distante do Sistema Solar?</h2>
+
+        <input type="radio" name="p3" id="p3q1" />
+        <label for="p3q1">a) Netuno</label>
+
+        <input type="radio" name="p3" id="p3q2" />
+        <label for="p3q2">b) Plutão</label>
+        <br />
+        <input type="radio" name="p3" id="p3q3" />
+        <label for="p3q3">c) Éris</label>
+
+        <input type="radio" name="p3" id="p3q4" />
+        <label for="p3q4">d) Mercúrio</label>
+
+        <h2>Pergunta 4: Qual é o nome da primeira pessoa a pisar na Lua?</h2>
+
+        <input type="radio" name="p4" 3id="p4q1" />
+        <label for="p4q1">a) Neil Armstrong </label>
+
+        <input type="radio" name="p4" id="p4q2" />
+        <label for="p4q2">b) Buzz Aldrin </label>
+        <br />
+        <input type="radio" name="p4" id="p4q3" />
+        <label for="p4q3">c) Michael Collins</label>
+
+        <input type="radio" name="p4" id="p4q4" />
+        <label for="p4q4">d) Alan Shepard </label>
+
+        <h2>Pergunta 5: O que é um buraco negro?</h2>
+
+        <input type="radio" name="p5" id="p5q1" />
+        <label for="p5q1">a) Uma estrela recém-formada </label>
+        <br />
+        <input type="radio" name="p5" id="p5q2" />
+        <label for="p5q2"
+          >b) Uma região do espaço onde a gravidade é tão intensa que nem a luz
+          consegue escapar
+        </label>
+        <br />
+        <input type="radio" name="p5" id="p5q3" />
+        <label for="p5q3">c) Um planeta gasoso gigante </label>
+        <br />
+        <input type="radio" name="p5" id="p5q4" />
+        <label for="p5q4">d) Uma supernova em expansão </label>
+
+        <h2>Pergunta 6: Qual é a galáxia mais próxima da Via Láctea?</h2>
+
+        <input type="radio" name="p6" id="p6q1" />
+        <label for="p6q1">a) Andrômeda </label>
+        <br />
+        <input type="radio" name="p6" id="p6q2" />
+        <label for="p6q2">b) Grande Nuvem de Magalhães </label>
+        <br />
+        <input type="radio" name="p6" id="p6q3" />
+        <label for="p6q3">c) Pequena Nuvem de Magalhães </label>
+        <br />
+        <input type="radio" name="p6" id="p6q4" />
+        <label for="p6q4">d) Messier 87 </label>
+
+        <p id="penviar"><input type="submit" value="Enviar" id="enviar" /></p>
+      </form>
+    </main>
+    <footer>
+      Site desenvolvido por
+      <a href="https://github.com/buaretti">Marcelo Buaretti</a>
+    </footer>
+    <script>
+      window.addEventListener("DOMContentLoaded", (event) => {
+        const timerElement = document.getElementById("timer");
+
+        let timer = 120;
+        let timerRunning = false;
+
+        function startTimer() {
+          if (!timerRunning) {
+            timerRunning = true;
+            const intervalId = setInterval(updateTimer, 1000); // Atualiza o timer a cada segundo
+
+            function updateTimer() {
+              timer--;
+              timerElement.textContent = timer + "s";
+
+              if (timer <= 0) {
+                clearInterval(intervalId); // Para o contador quando chegar a 0
+              }
+            }
+          }
+        }
+
+        window.addEventListener("scroll", startTimer);
+      });
+    </script>
+  </body>
+</html>
