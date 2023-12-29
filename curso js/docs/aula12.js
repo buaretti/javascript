@@ -1,7 +1,7 @@
-let n1 = [10, 20 , 30]
-let n2 = [11, 22 , 33, 44 , 55]
-let n3 = 0
+let dados1 = {nome: "Marcelo", idade: 18}
+let dados2 = {cidade: "Franca", Estado: "SP"}
+let dados3 = {Altura: 1.83, peso: 82}
+let dados4 = {...dados1, ...dados2, ...dados3}
 
-console.log(`n1: ${n1}`)
-console.log(`n2: ${n2}`)
-console.log(`n3: ${n3}`)
+console.log(dados4)
+
