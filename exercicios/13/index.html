@@ -64,6 +64,10 @@
         height: 50px;
       }
 
+      #enviar:hover{
+        cursor: pointer;
+      }
+
       footer {
         text-align: center;
         padding: 10px;
@@ -152,7 +156,7 @@
 
         <h2>Pergunta 4: Qual é o nome da primeira pessoa a pisar na Lua?</h2>
 
-        <input type="radio" name="p4" 3id="p4q1" />
+        <input type="radio" name="p4" id="p4q1" />
         <label for="p4q1">a) Neil Armstrong </label>
 
         <input type="radio" name="p4" id="p4q2" />
@@ -195,7 +199,7 @@
         <input type="radio" name="p6" id="p6q4" />
         <label for="p6q4">d) Messier 87 </label>
 
-        <p id="penviar"><input type="submit" value="Enviar" id="enviar" /></p>
+        <p id="penviar"><input type="submit" value="Enviar" id="enviar"/></p>
       </form>
     </main>
     <footer>
@@ -203,30 +207,72 @@
       <a href="https://github.com/buaretti">Marcelo Buaretti</a>
     </footer>
     <script>
-      window.addEventListener("DOMContentLoaded", (event) => {
-        const timerElement = document.getElementById("timer");
+        window.addEventListener("DOMContentLoaded", (event) => {
+      const timerElement = document.getElementById("timer");
+      const form = document.getElementById("quiz");
 
-        let timer = 120;
-        let timerRunning = false;
+      let timer = 120; // Definindo o tempo em segundos
+      let timerRunning = false;
+      let pontos = 0;
 
-        function startTimer() {
-          if (!timerRunning) {
-            timerRunning = true;
-            const intervalId = setInterval(updateTimer, 1000); // Atualiza o timer a cada segundo
+      function startTimer() {
+        if (!timerRunning) {
+          timerRunning = true;
+          const intervalId = setInterval(updateTimer, 1000); // Atualiza o timer a cada segundo
 
-            function updateTimer() {
-              timer--;
-              timerElement.textContent = timer + "s";
+          function updateTimer() {
+            timer--;
+            timerElement.textContent = timer + "s";
 
-              if (timer <= 0) {
-                clearInterval(intervalId); // Para o contador quando chegar a 0
-              }
+            if (timer <= 0) {
+              clearInterval(intervalId); // Para o contador quando chegar a 0
+              processarRespostas(); // Chama a função para verificar as respostas quando o tempo acabar
             }
           }
         }
+      }
 
-        window.addEventListener("scroll", startTimer);
+      window.addEventListener("scroll", startTimer);
+
+      form.addEventListener("submit", function(event) {
+        event.preventDefault(); // Previne o envio padrão do formulário
+        processarRespostas();
       });
+
+      function processarRespostas() {
+        const respostas = {
+          p1: document.querySelector('input[name="p1"]:checked'),
+          p2: document.querySelector('input[name="p2"]:checked'),
+          p3: document.querySelector('input[name="p3"]:checked'),
+          p4: document.querySelector('input[name="p4"]:checked'),
+          p5: document.querySelector('input[name="p5"]:checked'),
+          p6: document.querySelector('input[name="p6"]:checked')
+        };
+
+        const respostasCorretas = {
+          p1: "p1q1",
+          p2: "p2q1",
+          p3: "p3q3",
+          p4: "p4q1",
+          p5: "p5q2",
+          p6: "p6q1"
+        };
+
+        pontos = 0;
+
+        for (let key in respostas) {
+          if (respostas[key] && respostas[key].id === respostasCorretas[key]) {
+            pontos++;
+          }
+        }
+
+        alert(`Você marcou ${pontos} de 6 pontos.`);
+        // Você pode fazer algo mais sofisticado aqui, como exibir os resultados na página.
+      }
+      
+      // Inicia o timer quando a página é carregada
+      startTimer();
+    });
     </script>
   </body>
 </html>
