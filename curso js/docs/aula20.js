@@ -37,14 +37,28 @@
 // let nome = nomear()
 // console.log(nome)
 
-function ParOuImpar(x){
-    if(x % 2 == 0){
-        return "PAR"
-    } else {
-        return "ÍMPAR"
-    }
+// function ParOuImpar(x){
+//     if(x % 2 == 0){
+//         return "PAR"
+//     } else {
+//         return "ÍMPAR"
+//     }
+// }
+
+// let num = 19
+
+// console.log(`O Número ${num} é: ${ParOuImpar(num)}`)
+
+function soma(x,y){
+    return x + y
 }
 
-let num = 19
+console.log(`Resultado: ${soma(10,5)}`)
+console.log(`Resultado: ${soma(1,5)}`)
+console.log(`Resultado: ${soma(5,19)}`)
 
-console.log(`O Número ${num} é: ${ParOuImpar(num)}`)
+for(let c = 0; c < 5; c++){
+    console.log(`Resultado: ${soma(5,19)}`)
+}
+
+console.log(`Resultado: ${soma("cachorro ","doido")}`)
