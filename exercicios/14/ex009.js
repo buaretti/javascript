@@ -8,8 +8,8 @@ let mulheresfiltradas = 0
 
 do {
     genero[c] = window.prompt("Qual o Sexo? [M/F]")
-    idade[c] = window.prompt("Qual a idade?")
-    cordocabelo[c] = window.prompt("Qual a cor do cabelo? [1] Preto [2] Castanho [3] Loiro [4] Ruivo")
+    idade[c] = parseInt(window.prompt("Qual a idade?"))
+    cordocabelo[c] = parseInt(window.prompt("Qual a cor do cabelo? [1] Preto [2] Castanho [3] Loiro [4] Ruivo"))
     if (genero[c] === "M" && idade[c] >= 18 && cordocabelo[c] == 2) {
         homensfiltrados++
     }
